@@ -1,0 +1,72 @@
+@use "@/assets/styles/base/mixins" as *;
+@use "@/assets/styles/base/colors" as *;
+@use "@/assets/styles/base/variables" as *;
+
+/**
+ * Global Styles
+ * 
+ * Mobile-only base styling for the entire application.
+ * Enforces mobile viewport constraints and prevents desktop scaling.
+ * 
+ */
+
+// Root element - basic HTML setup
+:root {
+	color: $color-primary; // Primary text color
+	font-family: "Inter", sans-serif; // Base font family
+	font-weight: 400; // Normal font weight
+}
+
+// HTML element - fundamental document setup with mobile-only constraints
+html {
+	box-sizing: border-box; // Include padding/border in width
+	margin: 0 auto; // Center on wider screens
+	max-width: 767px; // Mobile-only max viewport
+	overflow-x: hidden; // Prevent horizontal scroll
+	scroll-behavior: smooth; // Smooth scrolling
+}
+
+// Universal box-sizing inheritance
+*,
+*::before,
+*::after {
+	box-sizing: inherit; // Efficient box-sizing inheritance
+}
+
+// Body - main document styling with mobile constraints
+body {
+	background-color: $white; // Page background color
+	margin: 0; // Remove default margin
+	max-width: 767px; // Match HTML max-width
+	min-height: 100vh; // Full viewport height
+	overflow-x: hidden; // Prevent horizontal scroll
+	position: relative; // Positioning context
+}
+
+// Input autofill styling
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 30px white inset !important; // Override autofill background
+	-webkit-text-fill-color: $color-primary2 !important; // Maintain text color
+	transition: background-color 5000s ease-in-out 0s; // Prevent color flash
+}
+
+input:autofill {
+	background-color: white !important; // Standard autofill background
+	color: $color-primary2 !important; // Standard autofill text color
+}
+
+// Remove default focus outline for inputs (custom styling should be in forms)
+input:focus {
+	outline: none; // Remove default browser outline
+}
+
+// App container - ensures mobile-only constraint
+#app {
+	margin: 0 auto; // Center horizontally
+	max-width: 767px; // Mobile-only width
+	min-height: 100vh; // Full height
+	position: relative; // Positioning context
+}

@@ -1,0 +1,57 @@
+{
+  // Editor settings
+  "editor.formatOnSave": false, // Prevents automatic code formatting when saving files
+  "editor.codeActionsOnSave": {}, // Disables automatic code fixes/organizing imports on save
+  
+  // Validation settings - Prevents false error notifications
+  "typescript.validate.enable": false, // Turns off TypeScript error checking in editor
+  "javascript.validate.enable": false, // Turns off JavaScript error checking in editor
+  "vue.server.hybridMode": false, // Disables Vue language server hybrid mode that can cause conflicts
+  
+  // Auto import functionality
+  "typescript.suggest.autoImports": true, // Shows import suggestions when typing component/function names
+  "typescript.updateImportsOnFileMove.enabled": "prompt", // Asks permission before updating imports when files are moved/renamed
+  
+  // Path mapping for project structure
+  "path-intellisense.mappings": {
+    "@": "${workspaceFolder}/src" // Enables autocomplete for @/components, @/utils etc. imports
+  },
+  
+  // CSS Navigation Settings
+  "cssNavigation.enableGoToDefinition": true,
+  "cssNavigation.enableWorkspaceSymbols": true,
+  "cssNavigation.enableIdAndClassNameCompletion": true,
+  
+  // File type recognition
+  "files.associations": {
+    "*.vue": "vue" // Tells VS Code to treat .vue files as Vue components
+  },
+    // Emmet HTML shortcuts
+  "emmet.triggerExpansionOnTab": true, // Allows Tab key to expand Emmet abbreviations (div.class-name + Tab)
+  
+  // File explorer cleanup
+  "files.exclude": {
+    "**/node_modules": true, // Hides node_modules folder from file explorer
+    "**/.git": true, // Hides git metadata folder from file explorer
+    "**/*.tsbuildinfo": true, // Hides TypeScript build cache files from file explorer
+    "**/coverage": true // Hides test coverage reports from file explorer
+  },
+  
+  // Search functionality
+  "search.exclude": {
+    "**/node_modules": true, // Excludes node_modules from Ctrl+Shift+F search results
+    "**/dist": true, // Excludes build files from search results (but visible in explorer)
+    "**/*.log": true, // Excludes log files from search results
+    "**/coverage": true // Excludes test coverage files from search results
+  },
+  
+  // Dim gitignored files/folders (including dist/) instead of hiding them
+  "explorer.decorations.colors": true, // Shows colored decorations for git status
+  "scm.defaultViewMode": "tree", // Shows git changes in tree view
+  
+  // Code editing helpers
+  "editor.autoClosingBrackets": "languageDefined", // Automatically closes (, [, { brackets based on language rules
+  "editor.autoClosingQuotes": "languageDefined", // Automatically closes ", ' quotes based on language rules
+  "editor.bracketPairColorization.enabled": true, // Colors matching brackets with same color for easier reading
+  "editor.guides.bracketPairs": true // Shows vertical lines connecting opening/closing brackets
+}

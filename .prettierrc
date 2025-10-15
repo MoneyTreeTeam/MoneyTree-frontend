@@ -1,0 +1,11 @@
+{
+  "useTabs": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "semi": true,
+  "bracketSpacing": true,
+  "plugins": [
+    "prettier-plugin-css-order"
+  ],
+  "cssDeclarationSorterOrder": "alphabetical"
+}

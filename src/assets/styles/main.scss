@@ -1,0 +1,40 @@
+/*
+ * This file is the main entry point for all styles in the application.
+ * Such as the standard auth pages, all components, forms, global layout, pages styles, utilities, and variables.
+ * It imports all the necessary stylesheets and applies global styles.
+ */
+
+// Base styles
+@use "@/assets/styles/base/global.scss";
+@use "@/assets/styles/base/reset.scss";
+@use "@/assets/styles/base/mixins.scss" as *;
+@use "@/assets/styles/base/shadows.scss";
+@use "@/assets/styles/base/colors.scss" as *;
+
+// Components
+// Buttons
+@use "@/assets/styles/components/buttons/base-button.scss";
+
+// Forms
+@use "@/assets/styles/components/forms/api-error.scss";
+@use "@/assets/styles/components/forms/checkbox.scss";
+@use "@/assets/styles/components/forms/dropdown.scss";
+@use "@/assets/styles/components/forms/input-error.scss";
+@use "@/assets/styles/components/forms/input.scss";
+@use "@/assets/styles/components/forms/radiobutton.scss";
+
+// Layout
+@use "@/assets/styles/components/layout/footer.scss";
+@use "@/assets/styles/components/layout/header.scss";
+@use "@/assets/styles/components/layout/navbar.scss";
+@use "@/assets/styles/components/layout/sidebar.scss";
+
+// Layouts
+@use "@/assets/styles/layouts/guest-layout.scss";
+
+// Utils
+@use "@/assets/styles/utils/animations.scss";
+@use "@/assets/styles/utils/notifications.scss";
+
+// Variables
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Inter:wght@400;500;700&family=Bebas+Neue&display=swap");

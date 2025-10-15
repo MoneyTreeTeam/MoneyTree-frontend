@@ -1,0 +1,35 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file - stops searching in parent directories
+root = true
+
+# All files - universal settings applied to every file type
+[*]
+charset = utf-8                   # Use UTF-8 encoding for international character support
+end_of_line = lf                  # Use Unix-style line endings (LF) for cross-platform compatibility
+insert_final_newline = true       # Ensure files end with a newline character (POSIX standard)
+trim_trailing_whitespace = true   # Remove unnecessary whitespace at the end of lines
+indent_style = space              # Use spaces instead of tabs for consistent formatting
+
+# JavaScript, TypeScript, Vue files - core application files
+[*.{js,ts,vue}]
+indent_size = 2                   # 2-space indentation for clean, readable code structure
+max_line_length = 120             # Limit lines to 120 characters for better readability
+insert_final_newline = true       # Required for proper Git handling and POSIX compliance
+
+# JSON files - configuration and data files
+[*.json]
+indent_size = 2                   # 2-space indentation for JSON consistency
+
+# CSS/SCSS files - styling files
+[*.{css,scss}]
+indent_size = 2                   # 2-space indentation for CSS consistency
+
+# HTML files - markup files
+[*.html]
+indent_size = 2                   # 2-space indentation for HTML consistency
+
+# Markdown files - documentation
+[*.md]
+trim_trailing_whitespace = false  # Preserve trailing spaces in Markdown (needed for line breaks)
+max_line_length = 80              # Shorter line length for documentation readability

@@ -1,0 +1,104 @@
+// Primary Colors
+$color-primary: #072d13; // Primary color (Dark green)
+$color-primary2: #fffcea; // Secondary Primary Color (Light cream/yellow)
+
+// Background Colors
+$color-background: #f9f9f9; // Main background color (Light grey)
+
+// Neutral Colors
+$color-divider: #f0f0f0; // Divider line color (Neutral grey)
+
+// Base Colors
+$white: white;
+$black: black;
+$grey: grey;
+
+// // - ALL INPUTS (Input.vue, Checkbox.vue, RadioButton.vue, etc..) - \\ --------------------------------------------------------------------------
+
+// Input border colors (based on primary green)
+$color-input-border: rgba(
+	7,
+	45,
+	19,
+	0.25
+); // Input border color (25% opacity of primary)
+$color-input-border-hover: rgba(
+	7,
+	45,
+	19,
+	0.4
+); // Input border hover color (40% opacity of primary)
+$color-input-border-focus: $color-primary; // Input border focus color (primary green)
+
+// Input placeholder colors (based on primary green)
+$color-input-placeholder: rgba(
+	7,
+	45,
+	19,
+	0.25
+); // Input placeholder text color (25% opacity of primary)
+$color-input-placeholder-hover: rgba(
+	7,
+	45,
+	19,
+	0.4
+); // Input placeholder hover color (40% opacity of primary)
+
+// Input background colors
+$color-input-bg: #ffffff; // Input background color
+$color-input-bg-hover: #f9fafb; // Input background hover color
+$color-input-bg-focus: #ffffff; // Input background focus color
+$color-input-bg-disabled: #e5e7eb; // Input background disabled color
+
+// Text Colors
+$color-text-primary: $color-primary; // Primary text color (#172a3a)
+$color-text-secondary: #4a5568; // Secondary text color (lighter version of primary2)
+$color-text-muted: #718096; // Muted text color (for less important text)
+$color-text-disabled: #cbd5e0; // Disabled text color
+
+// - STATUS ERRORS (ApiError.vue, Input.vue, Checkbox.vue, RadioButton.vue, buttons)  - \\ --------------------------------------------------------------------------
+
+// Status Colors (Primary status colors)
+$color-error: #dc2626; // Error text color
+$color-warn: #d97706; // Warning text color
+$color-info: #2563eb; // Info text color
+$color-fatal: #991b1b; // Fatal (darker red, consistent with error family)
+$color-success: #16a34a; // Success text color
+$color-active: #16a34a; // Active (same as success)
+$color-inactive: #6b7280; // Inactive (neutral gray)
+
+// Status Text colors
+$color-status-text-error: #dc2626; // Error text
+$color-status-text-warn: #d97706; // Warning text
+$color-status-text-info: #2563eb; // Info text
+$color-status-text-fatal: #991b1b; // Fatal text
+$color-status-text-success: #16a34a; // Success text
+
+// Status Border colors
+$color-status-border-error: #fecaca; // Error border
+$color-status-border-warn: #fed7aa; // Warning border
+$color-status-border-info: #bfdbfe; // Info border
+$color-status-border-fatal: #fca5a5; // Fatal border (consistent with error family)
+$color-status-border-success: #bbf7d0; // Success border
+
+// Status Background colors
+$color-status-bg-error: #fef2f2; // Error background
+$color-status-bg-warn: #fffbeb; // Warning background
+$color-status-bg-info: #eff6ff; // Info background
+$color-status-bg-fatal: #fef2f2; // Fatal background
+$color-status-bg-success: #f0fdf4; // Success background
+
+// // - MODALS (All / ONLY modals) - \\ --------------------------------------------------------------------------
+
+// Modal background colors
+$color-modal-bg: rgba(
+	255,
+	255,
+	255,
+	0.9
+); // Modal white background color with 90% opacity
+$color-modal-bg-hover: #f0f0f0; // Hover modal background
+
+// Modal Border colors
+$color-modal-border: #e2e8f0; // Standard modal border
+$color-modal-border-hover: #d9d9d9; // Hover modal border
