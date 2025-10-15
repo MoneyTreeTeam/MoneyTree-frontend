@@ -20,7 +20,7 @@ This is a comprehensive Vue 3 frontend template designed for building scalable, 
 | **Iconify**         | ^4.3.0   | Universal icon framework                   |
 | **ESLint**          | ^9.37.0  | Code quality and consistency               |
 | **Prettier**        | ^3.6.2   | Opinionated code formatter                 |
-| **SEO/Meta**        | ^2.0.0   | Dynamic meta tags & SEO Management         |
+| **VueUse**          | ^2.0.0   | Dynamic meta tags & SEO Management         |
 
 ---
 
@@ -34,14 +34,14 @@ This template is specifically designed for **mobile devices only** (smartphones)
 - Performance optimized for mobile networks
 
 ### SCSS Architecture
-Organized SCSS structure following the **7-1 pattern**:
 ```
 assets/styles/
 ├── base/          # Variables, colors, typography, mixins
 ├── components/    # Component-specific styles
+├── layouts/       # Layout wrappers and layout-specific helpers
 ├── forms/         # Form elements and validation styles
-├── layout/        # Header, footer, navbar, sidebar
-└── pages/         # Page-specific styles
+├── utils/         # Utility classes and helper functions
+└── views/         # Page-specific styles
 ```
 
 ---
@@ -115,23 +115,6 @@ npm run preview
 
 ---
 
-## Key Features
-
-### Development Tools
-- **ESLint**: Enforces code quality and Vue best practices
-- **Prettier**: Auto-formats code with CSS ordering
-- **TypeScript**: Full type safety across the project
-- **Hot Module Replacement**: Instant feedback during development
-
-### Styling System
-- **SCSS Variables**: Centralized design tokens
-- **Mixins**: Reusable style utilities
-- **Color System**: Consistent color palette
-- **Typography**: Standardized text styles
-- **Shadows**: Pre-defined elevation system
-
----
-
 ## Styling Methodology
 
 ### Global SCSS Variables
@@ -140,6 +123,7 @@ All SCSS files automatically import base variables:
 - `colors.scss` - Color palette and themes
 - `typography.scss` - Font families, sizes, weights
 - `mixins.scss` - Reusable CSS functions
+- `shadows.scss` - Shadow tokens and elevation styles
 
 ### Mobile Viewport
 ```scss
@@ -227,13 +211,13 @@ When working with a team:
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **MoneyTree Development Team**
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Vue 3 Documentation](https://vuejs.org/)
 - [Vite Documentation](https://vitejs.dev/)
