@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GuestLayout from "@/layouts/GuestLayout.vue";
 import { useHead } from "@vueuse/head";
 
 // Set the title of the page
@@ -8,4 +9,8 @@ useHead({
 });
 </script>
 
-<template></template>
+<template>
+	<GuestLayout>
+		
+	</GuestLayout>
+</template>

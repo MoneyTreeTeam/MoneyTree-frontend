@@ -1,0 +1,73 @@
+@use "../../base/colors" as *;
+
+.navbar {
+	width: 100%;
+	background-color: $color-primary;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+
+	&__container {
+		width: 100%;
+		padding: 0.875rem 1.25rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		color: $color-primary2;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.9;
+		}
+
+		&:focus {
+			outline: 2px solid $color-primary2;
+			outline-offset: 4px;
+			border-radius: 4px;
+		}
+	}
+
+	&__logo-icon {
+		width: 2rem;
+		height: 2rem;
+		object-fit: contain;
+	}
+
+	&__logo-text {
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		color: $color-primary2;
+	}
+
+	&__hamburger {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		font-size: 1.75rem;
+		color: $color-primary2;
+		z-index: 101;
+	}
+
+	&__hamburger-icon {
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+}

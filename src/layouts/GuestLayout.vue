@@ -1,27 +1,6 @@
 <script setup lang="ts">
-/**
- * GuestLayout
- *
- * Main layout wrapper for unauthenticated users (mobile-only).
- * Contains header with hamburger menu, overlay sidebar, content area, and footer.
- * Sidebar is hidden by default and toggles via hamburger icon in header.
- *
- * @features
- * - Mobile-only responsive design (max-width: 767px)
- * - Overlay sidebar navigation (hidden by default)
- * - Header with hamburger menu toggle
- * - Footer with legal links
- * - Slot for dynamic page content
- *
- * @dependencies
- * - Header.vue - Top navigation with hamburger menu
- * - Sidebar.vue - Overlay navigation menu
- * - Footer.vue - Bottom navigation with legal links
- *
- * @module GuestLayoutComponent
- */
-
 import { ref } from "vue";
+import Navbar from "@/components/layout/Navbar.vue";
 import Header from "@/components/layout/Header.vue";
 import Sidebar from "@/components/layout/Sidebar.vue";
 import Footer from "@/components/layout/Footer.vue";
@@ -48,6 +27,11 @@ const closeSidebar = () => {
 
 <template>
 	<div class="guest-layout">
+		<!-- Navbar -->
+		 <div class="guest-layout__navbar">
+			<Navbar @toggle-sidebar="toggleSidebar" />
+		</div>
+
 		<!-- Header -->
 		<div class="guest-layout__header">
 			<Header @toggle-sidebar="toggleSidebar" />
@@ -71,5 +55,5 @@ const closeSidebar = () => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/layout/guest-layout.scss";
+@use "@/assets/styles/layouts/guest-layout.scss";
 </style>
