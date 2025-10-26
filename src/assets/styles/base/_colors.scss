@@ -16,33 +16,13 @@ $grey: grey;
 // // - ALL INPUTS (Input.vue, Checkbox.vue, RadioButton.vue, etc..) - \\ --------------------------------------------------------------------------
 
 // Input border colors (based on primary green)
-$color-input-border: rgba(
-	7,
-	45,
-	19,
-	0.25
-); // Input border color (25% opacity of primary)
-$color-input-border-hover: rgba(
-	7,
-	45,
-	19,
-	0.4
-); // Input border hover color (40% opacity of primary)
+$color-input-border: #072d1340; // Input border color (25% opacity of primary)
+$color-input-border-hover: #072d1366; // Input border hover color (40% opacity of primary)
 $color-input-border-focus: $color-primary; // Input border focus color (primary green)
 
 // Input placeholder colors (based on primary green)
-$color-input-placeholder: rgba(
-	7,
-	45,
-	19,
-	0.25
-); // Input placeholder text color (25% opacity of primary)
-$color-input-placeholder-hover: rgba(
-	7,
-	45,
-	19,
-	0.4
-); // Input placeholder hover color (40% opacity of primary)
+$color-input-placeholder: #072d1340; // Input placeholder text color (25% opacity of primary)
+$color-input-placeholder-hover: #072d1366; // Input placeholder hover color (40% opacity of primary)
 
 // Input background colors
 $color-input-bg: #ffffff; // Input background color
@@ -91,12 +71,7 @@ $color-status-bg-success: #f0fdf4; // Success background
 // // - MODALS (All / ONLY modals) - \\ --------------------------------------------------------------------------
 
 // Modal background colors
-$color-modal-bg: rgba(
-	255,
-	255,
-	255,
-	0.9
-); // Modal white background color with 90% opacity
+$color-modal-bg: #ffffffe6; // Modal white background color with 90% opacity
 $color-modal-bg-hover: #f0f0f0; // Hover modal background
 
 // Modal Border colors

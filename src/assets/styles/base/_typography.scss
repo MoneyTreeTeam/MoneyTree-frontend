@@ -1,0 +1,66 @@
+@use "@/assets/styles/base/colors" as *;
+@use "@/assets/styles/base/variables" as *;
+
+// === Font Families ===
+$font-primary: "Poppins", sans-serif; // Primary headings font
+$font-secondary: "Inter", sans-serif; // Body text & UI elements
+
+// === Font Sizes ===
+$font-size-display-1: 4.5rem; // 72px - Hero displays
+$font-size-h1: 3.5rem; // 56px - Main headers
+$font-size-h2: 3rem; // 48px - Section headers
+$font-size-h3: 2rem; // 32px - Subsection headers
+$font-size-h4: 1.5rem; // 24px - Card titles
+$font-size-h5: 1rem; // 16px - Small headers
+$font-size-h6: 0.875rem; // 14px - Captions
+
+// Paragraph Sizes
+$font-size-p1: 1.25rem; // 20px - Large body text
+$font-size-p2: 1.125rem; // 18px - Medium body text
+$font-size-p3: 1rem; // 16px - Normal body text
+$font-size-p4: 0.875rem; // 14px - Default body text
+$font-size-p5: 0.75rem; // 12px - Small text & labels
+
+// === Typography Styles ===
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	font-family: $font-primary; // Consistent heading font
+	font-weight: $font-weight-bold; // Bold weight for hierarchy
+	margin: 0; // Reset default margins
+}
+
+p {
+	font-family: $font-secondary; // Body text font
+	font-weight: $font-weight-normal; // Regular weight
+	margin: 0; // Reset default margins
+}
+
+span {
+	font-family: $font-secondary; // Inherit body font
+	font-weight: $font-weight-normal; // Regular weight
+	margin: 0; // Reset margins
+}
+
+button, .button {
+	font-family: $font-secondary; // UI font consistency
+	font-weight: $font-weight-medium; // Medium weight for emphasis
+	margin: 0; // Reset margins
+}
+
+a {
+	color: $color-primary; // Primary link color
+	font-family: $font-secondary; // Consistent with body text
+	text-decoration: none; // Clean link appearance
+}
+
+// === Utility Classes ===
+.text-uppercase {
+	text-transform: uppercase; // ALL CAPS text
+}
+
+.text-lowercase {
+	text-transform: lowercase; // all lowercase text
+}
+
+.text-capitalize {
+	text-transform: capitalize; // Title Case Text
+}

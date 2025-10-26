@@ -1,0 +1,286 @@
+@use '@/assets/styles/base/colors' as *;
+@use '@/assets/styles/base/typography' as *;
+@use '@/assets/styles/base/variables' as *;
+
+.base-button {
+  align-items: center;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $font-secondary;
+  font-weight: $font-weight-medium;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+
+  // ============================================================================
+  // CLICK ANIMATION EFFECT
+  // ============================================================================
+
+  &::after {
+    background-color: rgba($white, 0.15);
+    border-radius: inherit;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 100%;
+  }
+
+  &:focus:not(:active)::after {
+    animation: clickEffect 0.3s ease-in-out;
+  }
+
+  @keyframes clickEffect {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  // ============================================================================
+  // SIZE VARIATIONS - Mobile-first optimized
+  // ============================================================================
+
+  &--small {
+    font-size: $font-size-p4;
+    padding: 0.5rem 0.75rem;
+  }
+
+  &--medium {
+    font-size: $font-size-p3;
+    padding: 0.625rem 1rem;
+  }
+
+  &--large {
+    font-size: $font-size-p3;
+    padding: 0.75rem 1.25rem;
+  }
+
+  // ============================================================================
+  // PRIMARY VARIANT - Main actions
+  // ============================================================================
+
+  &--primary {
+    &.base-button--submit {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-primary2;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.85);
+        border-color: rgba($color-primary, 0.85);
+      }
+    }
+
+    &.base-button--reset {
+      background-color: rgba($color-primary, 0.1);
+      border-color: $color-primary;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.2);
+      }
+    }
+
+    &.base-button--cancel {
+      background-color: transparent;
+      border-color: $color-input-border;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        border-color: $color-input-border-hover;
+      }
+    }
+
+    &.base-button--delete {
+      background-color: $color-error;
+      border-color: $color-error;
+      color: $white;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-error, 0.85);
+        border-color: rgba($color-error, 0.85);
+      }
+    }
+
+    &.base-button--button {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-primary2;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.85);
+        border-color: rgba($color-primary, 0.85);
+      }
+    }
+  }
+
+  // ============================================================================
+  // SECONDARY VARIANT - Supporting actions
+  // ============================================================================
+
+  &--secondary {
+    &.base-button--submit {
+      background-color: $color-primary2;
+      border-color: $color-primary;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary2, 0.85);
+      }
+    }
+
+    &.base-button--reset {
+      background-color: $color-background;
+      border-color: $color-text-secondary;
+      color: $color-text-secondary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-background, 0.85);
+      }
+    }
+
+    &.base-button--cancel {
+      background-color: transparent;
+      border-color: $color-text-muted;
+      color: $color-text-secondary;
+
+      &:hover:not(:disabled) {
+        border-color: $color-text-secondary;
+      }
+    }
+
+    &.base-button--delete {
+      background-color: $color-status-bg-error;
+      border-color: $color-error;
+      color: $color-error;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-status-bg-error, 0.8);
+      }
+    }
+
+    &.base-button--button {
+      background-color: $color-primary2;
+      border-color: $color-primary;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary2, 0.85);
+      }
+    }
+  }
+
+  // ============================================================================
+  // TERTIARY VARIANT - Subtle actions
+  // ============================================================================
+
+  &--tertiary {
+    &.base-button--submit {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.1);
+      }
+    }
+
+    &.base-button--reset {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-text-secondary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-text-secondary, 0.1);
+      }
+    }
+
+    &.base-button--cancel {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-text-muted;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-text-muted, 0.1);
+        color: $color-text-secondary;
+      }
+    }
+
+    &.base-button--delete {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-error;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-error, 0.1);
+      }
+    }
+
+    &.base-button--button {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-primary;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.1);
+      }
+    }
+  }
+
+  // ============================================================================
+  // STATES
+  // ============================================================================
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  // ============================================================================
+  // ICON SUPPORT
+  // ============================================================================
+
+  &__icon {
+    margin-right: 0.5rem;
+  }
+
+  &__icon--no-text {
+    margin-right: 0;
+  }
+
+  // ============================================================================
+  // LOADER
+  // ============================================================================
+
+  &__loader {
+    animation: spin 1s linear infinite;
+    border: 2px solid rgba($white, 0.3);
+    border-radius: 50%;
+    border-top-color: currentColor;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
