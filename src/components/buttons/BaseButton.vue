@@ -57,11 +57,6 @@
  * ```
  *
  * @module BaseButtonComponent
- * @author FiksUp
- * @version 1.0.0
- * @date 26-10-2025
- * @license Proprietary - FiksUp License (see LICENSE file)
- * @copyright 2025 FiksUp. All rights reserved.
  */
 import { computed } from 'vue';
 import { Icon } from '@iconify/vue';

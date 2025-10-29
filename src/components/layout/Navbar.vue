@@ -1,4 +1,34 @@
 <script setup lang="ts">
+/**
+ * Navbar Component
+ *
+ * Fixed navigation bar for mobile-only layout (max-width: 767px).
+ * Provides branding, home navigation, and sidebar toggle functionality.
+ *
+ * @features
+ * - MoneyTree branding with logo and text
+ * - Click-to-home navigation on logo
+ * - Hamburger menu to toggle sidebar
+ * - Fixed positioning with z-index layering
+ * - Mobile-first responsive design
+ * - Accessible with proper ARIA labels
+ * - Full width layout without max-width constraints
+ *
+ * @dependencies
+ * - vue-router - For programmatic navigation
+ * - @iconify/vue - Hamburger menu icon
+ *
+ * @emits
+ * - toggle-sidebar - Emitted when hamburger menu is clicked
+ *
+ * @example
+ * ```vue
+ * <Navbar @toggle-sidebar="handleSidebarToggle" />
+ * ```
+ *
+ * @module NavbarComponent
+ */
+
 import { useRouter } from "vue-router";
 import { Icon } from "@iconify/vue";
 
@@ -31,11 +61,13 @@ const toggleSidebar = () => {
 		<div class="navbar__container">
 			<!-- Logo -->
 			<button class="navbar__logo" aria-label="Ga naar home" @click="goToHome">
-				<img
-					class="navbar__logo-icon"
-					src="/images/moneytree-logo-yellow.png"
-					alt="MoneyTree Logo"
-				/>
+				<div class="navbar__logo-icon-wrapper">
+					<img
+						class="navbar__logo-icon"
+						src="/images/logos/moneytree-logo-yellow.png"
+						alt="MoneyTree Logo"
+					/>
+				</div>
 				<span class="navbar__logo-text">MoneyTree</span>
 			</button>
 

@@ -1,4 +1,138 @@
 @use "@/assets/styles/base/colors" as *;
 @use "@/assets/styles/base/typography" as *;
 @use "@/assets/styles/base/variables" as *;
-@use "@/assets/styles/base/mixins" as *;
+
+.footer {
+	width: 100%;
+	background-color: $color-primary;
+	padding: 2rem 1.5rem 1.5rem;
+	margin-top: auto;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+		width: 100%;
+	}
+
+	&__branding {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	&__logo-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	&__logo {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__brand-text {
+		font-family: $font-primary;
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+		color: $color-primary2;
+		letter-spacing: 0.5px;
+	}
+
+	&__socials {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	&__social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $color-primary2;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+			transform: translateY(-2px);
+		}
+
+		&:focus {
+			outline: 2px solid $color-primary2;
+			outline-offset: 4px;
+			border-radius: 4px;
+		}
+	}
+
+	&__social-icon {
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+
+	&__nav {
+		width: 100%;
+	}
+
+	&__nav-list {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__nav-item {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__nav-link {
+		font-family: $font-secondary;
+		font-size: $font-size-p4;
+		color: $color-primary2;
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+			text-decoration: underline;
+		}
+
+		&:focus {
+			outline: 2px solid $color-primary2;
+			outline-offset: 2px;
+			border-radius: 2px;
+		}
+	}
+
+	&__copyright {
+		padding-top: 0.5rem;
+		width: 100%;
+		text-align: left;
+
+		p {
+			font-family: $font-secondary;
+			font-size: $font-size-p5;
+			color: rgba($color-primary2, 0.7);
+		}
+	}
+
+	// Override DividerLine color for footer
+	:deep(.divider--line::before) {
+		background-color: rgba($color-primary2, 0.2);
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+	.footer {
+		padding: 1.5rem 1.25rem 1.25rem;
+	}
+}

@@ -1,0 +1,50 @@
+@use "../../base/colors" as *;
+@use "../../base/typography" as *;
+@use "../../base/variables" as *;
+
+.user-guide {
+	padding: 2rem 1.5rem;
+
+	&__header {
+		margin-bottom: 2rem;
+		text-align: left;
+	}
+
+	&__title {
+		font-family: $font-primary;
+		font-size: $font-size-h2;
+		font-weight: $font-weight-bold;
+		color: $color-primary;
+		margin-bottom: 1rem;
+	}
+
+	&__description {
+		font-family: $font-secondary;
+		font-size: $font-size-p2;
+		color: $color-text-secondary;
+		line-height: 1.6;
+	}
+
+	&__content {
+		font-family: $font-secondary;
+		font-size: $font-size-p3;
+		color: $color-text-primary;
+		line-height: 1.6;
+		text-align: left;
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+	.user-guide {
+		padding: 1.5rem 1.25rem;
+
+		&__title {
+			font-size: $font-size-h3;
+		}
+
+		&__description {
+			font-size: $font-size-p3;
+		}
+	}
+}

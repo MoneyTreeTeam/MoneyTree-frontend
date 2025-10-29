@@ -38,5 +38,5 @@
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/styles/components/form/divider-line.scss';
+@use '@/assets/styles/components/ui/divider-line.scss';
 </style>

@@ -1,9 +1,3 @@
-/*
- * This file is the main entry point for all styles in the application.
- * Such as the standard auth pages, all components, forms, global layout, pages styles, utilities, and variables.
- * It imports all the necessary stylesheets and applies global styles.
- */
-
 // Base styles
 @use "@/assets/styles/base/global.scss";
 @use "@/assets/styles/base/reset.scss";

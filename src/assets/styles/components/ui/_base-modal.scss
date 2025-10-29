@@ -1,0 +1,17 @@
+@use "../../base/colors" as *;
+
+.base-container {
+	display: flex;
+	flex-direction: column;
+	padding: 1.25rem;
+	background-color: $white;
+	border: 1px solid $color-divider;
+	border-radius: 12px;
+	transition: all 0.3s ease;
+
+	&:hover {
+		border-color: rgba($color-primary, 0.3);
+		box-shadow: 0 4px 12px rgba($color-primary, 0.08);
+		transform: translateY(-2px);
+	}
+}

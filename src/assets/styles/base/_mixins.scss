@@ -1,0 +1,42 @@
+@use "./colors" as *;
+
+// Hero gradient background - subtle primary color fade
+@mixin gradient-bg-hero {
+	background: linear-gradient(
+		180deg,
+		rgba($color-primary, 0.08) 0%,
+		rgba($color-primary2, 0.12) 50%,
+		rgba($color-primary, 0.04) 100%
+	);
+}
+
+// Section gradient background - light fade
+@mixin gradient-bg-light {
+	background: linear-gradient(
+		180deg,
+		rgba($color-primary, 0.02) 0%,
+		rgba($color-background, 1) 100%
+	);
+}
+
+// Section gradient background - accent fade
+@mixin gradient-bg-accent {
+	background: linear-gradient(
+		180deg,
+		rgba($color-background, 1) 0%,
+		rgba($color-primary2, 0.08) 100%
+	);
+}
+
+// Icon gradient background - vibrant primary
+@mixin gradient-bg-icon {
+	background: linear-gradient(135deg, $color-primary 0%, #0a4520 100%);
+}
+
+// Text gradient - for highlighted text with subtle primary2 accent
+@mixin gradient-text-highlight {
+	background: linear-gradient(135deg, $color-primary 0%, #0a4520 70%, $color-primary2 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

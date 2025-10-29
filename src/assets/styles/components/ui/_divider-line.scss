@@ -1,0 +1,17 @@
+@use '../../base/colors' as *;
+
+.divider {
+	align-items: center;
+	display: flex;
+	margin: 0.5rem 0;
+	width: 100%;
+
+	&--line {
+		&::before {
+			background-color: $color-divider;
+			content: '';
+			flex: 1;
+			height: 1px;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+@use "../../base/colors" as *;
+@use "../../base/typography" as *;
+@use "../../base/variables" as *;
+
+.scroll-hint {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	width: 100%;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	margin-top: auto;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+
+	&:hover {
+		transform: translateY(-2px);
+		opacity: 0.8;
+	}
+
+	&:focus {
+		outline: 2px solid $color-primary;
+		outline-offset: 4px;
+		border-radius: 8px;
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+
+	&__text {
+		font-family: $font-secondary;
+		font-size: $font-size-p4;
+		font-weight: $font-weight-medium;
+		color: $color-text-secondary;
+		text-align: center;
+	}
+
+	&__icon {
+		width: 1.75rem;
+		height: 1.75rem;
+		color: $color-text-secondary;
+		animation: bounce 2s infinite;
+	}
+}
+
+// Bounce animation - reduced height
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-5px);
+	}
+	60% {
+		transform: translateY(-2px);
+	}
+}
