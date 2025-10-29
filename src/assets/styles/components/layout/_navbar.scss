@@ -32,12 +32,6 @@
 		&:hover {
 			opacity: 0.9;
 		}
-
-		&:focus {
-			outline: 2px solid $color-primary2;
-			outline-offset: 4px;
-			border-radius: 4px;
-		}
 	}
 
 	&__logo-icon-wrapper {

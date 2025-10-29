@@ -35,7 +35,7 @@ html {
 
 // Body - main document styling with mobile constraints
 body {
-	background-color: $white; // Page background color
+	background-color: $color-primary; // Match navbar/footer background
 	margin: 0; // Remove default margin
 	max-width: 767px; // Match HTML max-width
 	min-height: 100vh; // Full viewport height
@@ -69,4 +69,37 @@ input:focus {
 	max-width: 767px; // Mobile-only width
 	min-height: 100vh; // Full height
 	position: relative; // Positioning context
+}
+
+/* =======================================
+   iOS / Safari Click & Hover Fix
+   ======================================= */
+
+// Remove blue tap highlight effect on all elements
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+// Interactive elements - cursor and touch behavior
+button,
+a,
+[role="button"],
+.clickable {
+	cursor: pointer; // Show pointer cursor
+	-webkit-user-select: none; // Prevent text selection (webkit)
+	user-select: none; // Prevent text selection (standard)
+	-webkit-touch-callout: none; // Disable iOS callout menu
+	-webkit-appearance: none; // Remove default iOS styling (webkit)
+	appearance: none; // Remove default styling (standard)
+	-webkit-tap-highlight-color: transparent; // Remove tap highlight
+	-webkit-transition: all 0.25s ease; // Smooth transitions (webkit)
+	transition: all 0.25s ease; // Smooth transitions (standard)
+}
+
+// Hover states for mobile feedback
+button:hover,
+a:hover,
+[role="button"]:hover,
+.clickable:hover {
+	opacity: 0.9; // Slightly reduce opacity on hover
 }

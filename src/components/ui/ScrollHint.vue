@@ -38,12 +38,22 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 /**
- * Smoothly scrolls to the target section
+ * Smoothly scrolls to the target section with offset for fixed navbar
+ * Calculates the navbar height and scrolls to position that accounts for it
+ * 
+ * @returns {void}
  */
 const scrollToTarget = () => {
 	const targetElement = document.getElementById(props.targetId);
 	if (targetElement) {
-		targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+		const navbarHeight = 72; // 4.5rem = 72px (navbar height)
+		const elementPosition = targetElement.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: "smooth"
+		});
 	}
 };
 </script>

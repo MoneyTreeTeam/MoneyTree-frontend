@@ -72,6 +72,7 @@ useHead({
 					motiverend door je vooruitgang visueel te tonen. Zie elke euro groeien
 					en bereik eindelijk je financiële doelen.
 				</p>
+
 				<div class="home__header-cta">
 					<router-link to="/handleiding" class="home__cta-link">
 						<BaseButton
@@ -80,6 +81,7 @@ useHead({
 							size="large"
 							icon="mdi:arrow-right"
 							type="button"
+							class="home__hero-button"
 						/>
 					</router-link>
 				</div>
@@ -87,11 +89,13 @@ useHead({
 			<ScrollHint target-id="features" />
 		</header>
 
-		<DividerLine />
-
 		<!-- Features Section -->
 		<section id="features" class="home__features">
 			<h2 class="home__features-title">Waarom MoneyTree?</h2>
+			<p class="home__features-description">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+				Odio mollitia asperiores placeat magni minima iste id quidem suscipit nam non.
+			</p>
 
 			<BaseContainer>
 				<div class="home__feature-content">
@@ -154,8 +158,10 @@ useHead({
 			</BaseContainer>
 		</section>
 
-		<DividerLine />
-
+		<div class="home__divider-wrapper">
+			<DividerLine />
+		</div>
+		
 		<!-- CTA Section -->
 		<section id="cta" class="home__cta-section">
 			<h2 class="home__cta-title">Klaar om te groeien?</h2>
