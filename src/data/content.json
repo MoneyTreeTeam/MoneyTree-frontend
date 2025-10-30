@@ -1,0 +1,88 @@
+{
+  "userGuide": {
+    "title": "Handleiding",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "sections": [
+      {
+        "id": "item-1",
+        "label": "Item 1",
+        "title": "Item 1",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "subsections": [
+          {
+            "id": "item-1-1",
+            "label": "Subitem 1.1",
+            "title": "Subitem 1.1",
+            "content": "Subsectie content hier"
+          },
+          {
+            "id": "item-1-2",
+            "label": "Subitem 1.2",
+            "title": "Subitem 1.2",
+            "content": "Subsectie content hier"
+          }
+        ]
+      },
+      {
+        "id": "item-2",
+        "label": "Item 2",
+        "title": "Item 2",
+        "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "subsections": [
+          {
+            "id": "item-2-1",
+            "label": "Subitem 2.1",
+            "title": "Subitem 2.1",
+            "content": "Subsectie content voor item 2.1"
+          },
+          {
+            "id": "item-2-2",
+            "label": "Subitem 2.2",
+            "title": "Subitem 2.2",
+            "content": "Subsectie content voor item 2.2"
+          }
+        ]
+      },
+      {
+        "id": "item-3",
+        "label": "Item 3",
+        "title": "Item 3",
+        "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        "subsections": [
+          {
+            "id": "item-3-1",
+            "label": "Subitem 3.1",
+            "title": "Subitem 3.1",
+            "content": "Subsectie content voor item 3.1"
+          },
+          {
+            "id": "item-3-2",
+            "label": "Subitem 3.2",
+            "title": "Subitem 3.2",
+            "content": "Subsectie content voor item 3.2"
+          }
+        ]
+      },
+      {
+        "id": "item-4",
+        "label": "Item 4",
+        "title": "Item 4",
+        "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+        "subsections": [
+          {
+            "id": "item-4-1",
+            "label": "Subitem 4.1",
+            "title": "Subitem 4.1",
+            "content": "Subsectie content voor item 4.1"
+          },
+          {
+            "id": "item-4-2",
+            "label": "Subitem 4.2",
+            "title": "Subitem 4.2",
+            "content": "Subsectie content voor item 4.2"
+          }
+        ]
+      }
+    ]
+  }
+}
