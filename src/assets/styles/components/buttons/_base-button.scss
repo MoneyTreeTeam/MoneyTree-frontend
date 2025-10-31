@@ -71,6 +71,10 @@
     padding: 0.75rem 1.25rem;
   }
 
+  &--icon-only {
+    padding: 0.5rem;
+  }
+
   // ============================================================================
   // PRIMARY VARIANT - Main actions
   // ============================================================================
@@ -135,54 +139,12 @@
   // ============================================================================
 
   &--secondary {
-    &.base-button--submit {
-      background-color: $color-primary2;
-      border-color: $color-primary;
-      color: $color-primary;
+    background-color: transparent;
+    border-color: transparent;
+    color: $color-primary;
 
-      &:hover:not(:disabled) {
-        background-color: rgba($color-primary2, 0.85);
-      }
-    }
-
-    &.base-button--reset {
-      background-color: $color-background;
-      border-color: $color-text-secondary;
-      color: $color-text-secondary;
-
-      &:hover:not(:disabled) {
-        background-color: rgba($color-background, 0.85);
-      }
-    }
-
-    &.base-button--cancel {
-      background-color: transparent;
-      border-color: $color-text-muted;
-      color: $color-text-secondary;
-
-      &:hover:not(:disabled) {
-        border-color: $color-text-secondary;
-      }
-    }
-
-    &.base-button--delete {
-      background-color: $color-status-bg-error;
-      border-color: $color-error;
-      color: $color-error;
-
-      &:hover:not(:disabled) {
-        background-color: rgba($color-status-bg-error, 0.8);
-      }
-    }
-
-    &.base-button--button {
-      background-color: $color-primary2;
-      border-color: $color-primary;
-      color: $color-primary;
-
-      &:hover:not(:disabled) {
-        background-color: rgba($color-primary2, 0.85);
-      }
+    &:hover:not(:disabled) {
+      background-color: rgba($color-primary, 0.1);
     }
   }
 
@@ -258,10 +220,10 @@
 
   &__icon {
     margin-right: 0.5rem;
-  }
 
-  &__icon--no-text {
-    margin-right: 0;
+    .base-button--icon-only & {
+      margin-right: 0;
+    }
   }
 
   // ============================================================================

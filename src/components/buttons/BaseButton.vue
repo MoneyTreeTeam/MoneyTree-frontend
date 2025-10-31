@@ -81,7 +81,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   label: '',
-  variant: 'primary',
+  variant: 'primary', 
   type: 'button',
   size: 'medium',
   icon: '',
@@ -93,12 +93,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 const router = useRouter();
 
+const isIconOnly = computed(() => props.icon && !props.label);
+
 const buttonClass = computed(() => {
   return [
     'base-button',
     `base-button--${props.variant}`,
     `base-button--${props.size}`,
-    `base-button--${props.type}`
+    `base-button--${props.type}`,
+    { 'base-button--icon-only': isIconOnly.value }
   ];
 });
 
@@ -132,9 +135,9 @@ const handleClick = () => {
         <Icon
             v-if="icon"
             :icon="icon"
-            :class="{ 'base-button__icon': label, 'base-button__icon--no-text': !label }"
+            class="base-button__icon"
         />
-        {{ label }}
+        <span v-if="label">{{ label }}</span>
     </template>
     </button>
 </template>

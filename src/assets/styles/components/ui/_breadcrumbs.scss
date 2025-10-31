@@ -1,0 +1,53 @@
+@use "../../base/colors" as *;
+@use "../../base/typography" as *;
+@use "../../base/variables" as *;
+
+.breadcrumbs {
+	background-color: $white;
+	border-bottom: 1px solid $color-divider;
+	padding: 0.75rem 1.5rem;
+
+	&__list {
+		align-items: center;
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		align-items: center;
+		display: flex;
+	}
+
+	&__link {
+		color: $color-text-secondary;
+		font-family: $font-secondary;
+		font-size: $font-size-p4;
+		font-weight: $font-weight-medium;
+		text-decoration: none;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+	&__text {
+		color: $color-text-secondary;
+		font-family: $font-secondary;
+		font-size: $font-size-p4;
+		font-weight: $font-weight-medium;
+
+		&--active {
+			color: $color-text-primary;
+			font-weight: $font-weight-semibold;
+		}
+	}
+
+	&__separator {
+		color: $color-text-secondary;
+		font-size: 1rem;
+		margin: 0 0.5rem;
+	}
+}

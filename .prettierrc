@@ -1,9 +1,11 @@
 {
+  "tabWidth": 4,
   "useTabs": true,
   "singleQuote": false,
   "trailingComma": "all",
   "semi": true,
   "bracketSpacing": true,
+  "vueIndentScriptAndStyle": true,
   "plugins": [
     "prettier-plugin-css-order"
   ],
