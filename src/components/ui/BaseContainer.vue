@@ -2,20 +2,21 @@
 /**
  * BaseContainer Component
  *
- * Reusable container component with consistent border styling and hover effects.
+ * Reusable container wrapper with consistent styling and hover effects.
  * Used to wrap content sections with a professional card-like appearance.
  *
  * @features
- * - Consistent border and padding
- * - Hover effects (shadow + transform)
- * - Flexible content via slot
- * - Mobile-first responsive design
+ * - Consistent border, padding, and border-radius
+ * - Hover effects with subtle border color change
+ * - Flexible content via default slot
+ * - White background with divider border
+ * - Smooth transitions for interactive feedback
  *
  * @example
  * ```vue
  * <BaseContainer>
- *   <h3>Title</h3>
- *   <p>Content goes here...</p>
+ *     <h3>Section Title</h3>
+ *     <p>Content goes here...</p>
  * </BaseContainer>
  * ```
  *

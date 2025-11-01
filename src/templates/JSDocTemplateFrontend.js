@@ -503,6 +503,97 @@
  * - SCSS/CSS files (use CSS comments)
  * - JSON files (no comments)
  * 
+ * INLINE COMMENTS - WHEN & HOW TO USE:
+ * 
+ * GOLDEN RULE: Only comment where code logic isn't immediately obvious
+ * 
+ * ALWAYS USE COMMENTS FOR:
+ * 1. Section separators between major code blocks: // --- COMPOSABLES INITIALIZATION ---
+ * 2. Complex object initialization: // Map component names to actual components for dynamic rendering
+ * 3. ALL functions with parameters: Multi-line JSDoc (2-3 lines + @param tags)
+ * 4. ALL computed properties: Multi-line JSDoc (2-3 lines describing transformation/logic)
+ * 5. Step-by-step logic WITHIN complex functions/computed: Inline comments per step
+ * 
+ * NEVER USE COMMENTS FOR:
+ * 1. Import statements (self-explanatory from names)
+ * 2. Simple variable assignments (const data = jsonData.data)
+ * 3. Self-documenting code with clear variable names
+ * 4. Obvious Vue template syntax
+ * 
+ * FORMATTING RULES:
+ * - Section separators: // --- SECTION NAME IN CAPS ---
+ * - Single-line comments: Start with capital, no period at end
+ * - Multi-line JSDoc: 2-3 lines description + @param/@returns if applicable
+ * - Inline comments: Place ABOVE code line, explain the "why" not just "what"
+ * - Always maintain professional tone without emoji or casual language
+ * 
+ * EXAMPLE PATTERNS (use generic placeholder names):
+ * 
+ * ✅ CORRECT:
+ * // Map step identifiers to component instances for dynamic rendering
+ * const stepComponents = { StepOne, StepTwo, StepThree };
+ * 
+ * // --- COMPOSABLES INITIALIZATION ---
+ * const router = useRouter();
+ * 
+ * /**
+ *  * Handles item selection and updates active state
+ *  * Triggers navigation callback if provided
+ *  * 
+ *  * @param selectedItem - The selected menu item object
+ *  * @param itemIndex - Position in the menu list
+ *  *\/
+ * const handleItemClick = ({ selectedItem, itemIndex }) => { ... };
+ * 
+ * /**
+ *  * Transform raw data into structured format for display
+ *  * Creates hierarchy with parent categories and child items
+ *  *\/
+ * const formattedItems = computed(() => rawData.map(...));
+ * 
+ * /**
+ *  * Build navigation breadcrumb path dynamically
+ *  * Format: Dashboard > Category > Subcategory (if exists)
+ *  *\/
+ * const breadcrumbPath = computed(() => {
+ *   // Initialize with root item
+ *   const pathItems = [{ label: 'Dashboard', path: '/' }];
+ *   
+ *   // Get current category from state
+ *   const currentCategory = categories[activeIndex.value];
+ *   if (!currentCategory) return pathItems;
+ *   
+ *   // Check if subcategory is selected
+ *   const activeSubcategory = currentCategory.children?.find(child => child.id === selectedId.value);
+ *   
+ *   if (activeSubcategory) {
+ *     // Add both category and subcategory to path
+ *     pathItems.push({ label: currentCategory.name, path: currentCategory.route });
+ *     pathItems.push({ label: activeSubcategory.name, path: activeSubcategory.route });
+ *   } else {
+ *     // Add only category to path
+ *     pathItems.push({ label: currentCategory.name, path: currentCategory.route });
+ *   }
+ *   
+ *   return pathItems;
+ * });
+ * 
+ * ❌ INCORRECT:
+ * // Import Vue functions
+ * import { ref } from 'vue';
+ * 
+ * // Get user data
+ * const userData = apiResponse.userData;
+ * 
+ * // This computed returns items
+ * const displayItems = computed(() => rawData);
+ * 
+ * APPLY THIS STANDARD TO:
+ * - All Vue components (especially complex pages like UserGuide.vue)
+ * - All composables with exported functions
+ * - All utilities with business logic
+ * - Configuration files only where logic needs explanation
+ * 
  * ============================================================================
  * DIRECTORY-SPECIFIC DOCUMENTATION RULES
  * ============================================================================

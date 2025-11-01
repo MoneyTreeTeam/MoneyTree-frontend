@@ -28,17 +28,18 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 	<footer class="footer">
 		<div class="footer__container">
 			<!-- Branding Section -->
-			<div class="footer__branding">
-				<div class="footer__logo-wrapper">
-					<img
-						class="footer__logo"
-						src="/images/logos/moneytree-logo-yellow.png"
-						alt="MoneyTree Logo"
-					/>
+			<router-link to="/" class="footer__branding-link" aria-label="Ga naar homepagina">
+				<div class="footer__branding">
+					<div class="footer__logo-wrapper">
+						<img
+							class="footer__logo"
+							src="/images/logos/moneytree-logo-yellow.png"
+							alt="MoneyTree Logo"
+						/>
+					</div>
+					<span class="footer__brand-text">MoneyTree</span>
 				</div>
-				<span class="footer__brand-text">MoneyTree</span>
-			</div>
-
+			</router-link>
 			<!-- Social Media Links -->
 			<div class="footer__socials">
 				<a

@@ -29,10 +29,7 @@
  * @module NavbarComponent
  */
 
-import { useRouter } from "vue-router";
 import { Icon } from "@iconify/vue";
-
-const router = useRouter();
 
 /**
  * Emits toggle-sidebar event to parent component
@@ -40,13 +37,6 @@ const router = useRouter();
 const emit = defineEmits<{
 	"toggle-sidebar": [];
 }>();
-
-/**
- * Navigates to home page when logo is clicked
- */
-const goToHome = () => {
-	router.push("/home");
-};
 
 /**
  * Toggles the sidebar open/closed state
@@ -59,8 +49,8 @@ const toggleSidebar = () => {
 <template>
 	<nav class="navbar">
 		<div class="navbar__container">
-			<!-- Logo -->
-			<button class="navbar__logo" aria-label="Ga naar home" @click="goToHome">
+			<!-- Logo and Home Navigation -->
+			<router-link to="/" class="navbar__logo" aria-label="Ga naar home">
 				<div class="navbar__logo-icon-wrapper">
 					<img
 						class="navbar__logo-icon"
@@ -69,7 +59,7 @@ const toggleSidebar = () => {
 					/>
 				</div>
 				<span class="navbar__logo-text">MoneyTree</span>
-			</button>
+			</router-link>
 
 			<!-- Hamburger Menu -->
 			<button

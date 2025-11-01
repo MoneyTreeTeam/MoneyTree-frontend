@@ -1,0 +1,15 @@
+@use '../base/colors' as *;
+
+@keyframes highlight-fade {
+  from {
+    background-color: rgba($color-primary, 0.15);
+    border-radius: 4px; // Optional: for rounded corners on the highlight
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.highlighted {
+  animation: highlight-fade 2s ease-out;
+}

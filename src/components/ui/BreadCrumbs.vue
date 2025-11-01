@@ -1,60 +1,95 @@
 <script setup lang="ts">
 /**
  * BreadCrumbs Component
- * 
- * @description A dynamic breadcrumb component that displays the user's navigation path.
  *
- * @props
- * - items: An array of breadcrumb items, where each item is an object with `text` and an optional `to` for the link.
+ * A dynamic breadcrumb navigation component that displays the current page location.
+ * Provides visual hierarchy and easy navigation through the application structure.
  *
  * @features
- * - Dynamically generates breadcrumbs from a prop.
- * - The last item is always displayed as active and is not a link.
- * - Includes a separator icon between items.
+ * - Dynamically generates breadcrumbs from items prop
+ * - Last item displayed as active (non-clickable) text
+ * - Previous items are clickable navigation links
+ * - Chevron separator icons between items
+ * - Hover effects on clickable breadcrumbs
+ * - Accessible navigation with semantic HTML
  *
  * @dependencies
- * - @iconify/vue: For the separator icon.
+ * - @iconify/vue - For chevron separator icons
  *
  * @example
- * <BreadCrumbs :items="[{ text: 'Home', to: '/' }, { text: 'Handleiding' }]" />
+ * ```vue
+ * <BreadCrumbs 
+ *     :items="breadcrumbItems" 
+ *     @navigate="handleBreadcrumbNavigation" 
+ * />
+ * ```
  *
  * @module BreadCrumbsComponent
  */
-
 import { Icon } from '@iconify/vue';
 
 interface BreadcrumbItem {
   text: string;
-  to?: string;
+  [key: string]: any; // Allow other properties like 'to'
 }
 
-defineProps<{
+interface Props {
   items: BreadcrumbItem[];
-}>();
+}
+
+interface Emits {
+  (e: 'navigate', payload: { item: BreadcrumbItem; index: number }): void;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<Emits>();
+
+/**
+ * Handles the click event on a breadcrumb item.
+ * Emits a navigate event only for items that are not the last one.
+ * 
+ * @param item - The breadcrumb item that was clicked.
+ * @param index - The index of the clicked item.
+ */
+const handleClick = (item: BreadcrumbItem, index: number) => {
+  // Only emit for items that are not the last one
+  if (index < props.items.length - 1) {
+    emit('navigate', { item, index });
+  }
+};
+
 </script>
 
 <template>
-  <nav aria-label="breadcrumb" class="breadcrumbs">
+  <nav aria-label="Breadcrumb" class="breadcrumbs">
     <ol class="breadcrumbs__list">
       <li
         v-for="(item, index) in items"
         :key="index"
         class="breadcrumbs__item"
       >
-        <router-link
-          v-if="item.to && index < items.length - 1"
-          :to="item.to"
+        <a
+          v-if="index < items.length - 1"
+          href="#"
           class="breadcrumbs__link"
+          :aria-label="`Ga naar ${item.text}`"
+          @click.prevent="handleClick(item, index)"
         >
           {{ item.text }}
-        </router-link>
-        <span v-else class="breadcrumbs__text" :class="{ 'breadcrumbs__text--active': index === items.length - 1 }">
+        </a>
+        <span 
+          v-else 
+          class="breadcrumbs__text" 
+          :class="{ 'breadcrumbs__text--active': index === items.length - 1 }"
+          aria-current="page"
+        >
           {{ item.text }}
         </span>
         <Icon
           v-if="index < items.length - 1"
           icon="mdi:chevron-right"
           class="breadcrumbs__separator"
+          aria-hidden="true"
         />
       </li>
     </ol>

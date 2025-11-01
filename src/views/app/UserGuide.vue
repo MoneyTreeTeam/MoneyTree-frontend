@@ -1,95 +1,186 @@
 <script setup lang="ts">
 /**
  * UserGuide Component
- * @description Comprehensive user guide for the MoneyTree application, providing detailed instructions and documentation.
+ *
+ * Comprehensive user guide for the MoneyTree application.
+ * Provides step-by-step documentation with interactive navigation and table of contents.
  *
  * @features
- * - Displays the user documentation for the MoneyTree application.
- * - Includes a dynamic breadcrumb for easy navigation within the guide.
- * - Uses a step navigation component to guide the user through the content.
- * - Content is structured for clarity and ease of use.
+ * - Dynamic step-based navigation system
+ * - Interactive table of contents with subsection support
+ * - Breadcrumb navigation for current location tracking
+ * - Smooth scrolling to sections and subsections
+ * - Highlighted section on navigation
+ * - Component-based content organization
  *
  * @dependencies
- * - GuestLayout: The main layout wrapper.
- * - BreadCrumbs: The breadcrumb component.
- * - StepNavigation: The step navigation component.
- * - @vueuse/head: For managing page metadata.
- * - useStepNavigation: Composable for step navigation logic.
- * - Step1, Step2, Step3, Step4: Components for each step's content.
+ * - vue-router - For routing functionality
+ * - @vueuse/head - For managing page metadata (title, description)
+ * - GuestLayout.vue - Main layout wrapper
+ * - BreadCrumbs.vue - Breadcrumb navigation component
+ * - StepNavigation.vue - Step navigation controls
+ * - TableOfContents.vue - Interactive table of contents
+ * - Step1-4.vue - Individual step content components
+ * - useStepNavigation - Composable for step navigation logic
+ * - useTableOfContents - Composable for TOC interaction logic
  *
  * @module UserGuideComponent
  */
 
+import { computed, toRef } from 'vue';
+import { useRouter } from 'vue-router';
+import { useHead } from "@vueuse/head";
+import { useStepNavigation } from '@/composables/components/ui/useStepNavigation';
+import { useTableOfContents } from '@/composables/components/ui/useTableOfContents';
 import GuestLayout from "@/layouts/GuestLayout.vue";
 import BreadCrumbs from '@/components/ui/BreadCrumbs.vue';
 import StepNavigation from '@/components/ui/StepNavigation.vue';
+import TableOfContents from "@/components/ui/TableOfContents.vue";
 import Step1 from '@/components/user-guide/Step1.vue';
 import Step2 from '@/components/user-guide/Step2.vue';
 import Step3 from '@/components/user-guide/Step3.vue';
 import Step4 from '@/components/user-guide/Step4.vue';
-import { computed } from 'vue';
-import { useHead } from "@vueuse/head";
-import { useStepNavigation } from '@/composables/components/ui/useStepNavigation';
+import userGuideContent from "@/data/views/app/userGuideContent.json";
 
-const steps = [
-  { id: 'aan-de-slag', title: 'Aan de slag', component: Step1 },
-  { id: 'eerste-gebruik', title: 'Eerste gebruik', component: Step2 },
-  { id: 'batterij-voeding', title: 'Batterij/voeding', component: Step3 },
-  { id: 'probleemoplossing', title: 'Probleemoplossing', component: Step4 },
-];
+// Map component names to actual components for dynamic rendering
+const stepComponentMap: { [key: string]: any } = {
+  Step1,
+  Step2,
+  Step3,
+  Step4,
+};
 
-const { currentStep, goToStep } = useStepNavigation(steps.length);
+const userGuide = userGuideContent.userGuide;
+const sections = toRef(userGuide, 'sections');
 
-// Set the title of the page
+// --- COMPOSABLES INITIALIZATION ---
+const router = useRouter();
+const { currentStep, goToStep } = useStepNavigation(sections.value.length);
+const { activeTocId, handleTocNavigation } = useTableOfContents(sections, currentStep, goToStep);
+
+// --- NAVIGATION HANDLERS ---
+/**
+ * Handles breadcrumb navigation clicks
+ * Routes to home on first breadcrumb, navigates to section on second
+ * 
+ * @param item - The breadcrumb item clicked
+ * @param index - Index in the breadcrumb trail
+ */
+const handleBreadcrumbNavigation = ({ item, index }: { item: { text: string, to?: string }, index: number }) => {
+  if (index === 0 && item.to) {
+    router.push(item.to);
+  } else if (index === 1) {
+    const sectionIndex = sections.value.findIndex(s => s.title === item.text);
+    if (sectionIndex !== -1) {
+      handleTocNavigation({ sectionIndex });
+    }
+  }
+};
+
+// --- PAGE METADATA ---
 useHead({
-	title: "MoneyTree | Handleiding",
-	meta: [
-		{
-			name: "description",
-			content:
-				"Complete gebruikershandleiding voor MoneyTree.",
-		},
-	],
+  title: "MoneyTree | Handleiding",
+  meta: [
+    {
+      name: "description",
+      content: userGuide.description,
+    },
+  ],
 });
 
+// --- COMPUTED PROPERTIES ---
+/**
+ * Transform sections data into format required by TableOfContents component
+ * Maps each section with its title and subsections for TOC display
+ */
+const tocItems = computed(() => sections.value.map((section) => ({
+  id: section.id,
+  label: section.title,
+  subsections: section.subSections.map((sub) => ({
+    id: sub.id,
+    label: sub.label,
+  })),
+})));
+
+/**
+ * Generate breadcrumb trail based on current navigation state
+ * Shows: Handleiding > Section > Subsection (if applicable)
+ */
 const breadcrumbItems = computed(() => {
-  const items = [{ text: 'Handleiding', to: '/handleiding' }];
-  items.push({ text: steps[currentStep.value].title });
+  // Start with base breadcrumb (Handleiding)
+  const items: { text: string, to?: string }[] = [{ text: 'Handleiding', to: '/handleiding' }];
+
+  // Get current section data
+  const currentSection = sections.value[currentStep.value];
+  if (!currentSection) return items;
+
+  // Check if user is on a subsection
+  const activeSubSection = currentSection.subSections.find(sub => sub.id === activeTocId.value);
+
+  if (activeSubSection) {
+    // Add section and subsection to breadcrumb trail
+    items.push({ text: currentSection.title, to: '#' }); 
+    items.push({ text: activeSubSection.label });
+  } else {
+    // Add only section to breadcrumb trail
+    items.push({ text: currentSection.title });
+  }
+
   return items;
 });
 
+/**
+ * Get the data for the currently active step
+ * Returns section object with title, description, and subsections
+ */
+const currentStepData = computed(() => {
+  return sections.value[currentStep.value];
+});
+
+/**
+ * Resolve the Vue component for the current step
+ * Dynamically maps component name from JSON to actual component
+ */
 const currentStepComponent = computed(() => {
-  return steps[currentStep.value].component;
+  const componentName = sections.value[currentStep.value]?.component;
+  return componentName ? stepComponentMap[componentName] : null;
 });
 
 </script>
 
 <template>
 	<GuestLayout>
-    <BreadCrumbs :items="breadcrumbItems" />
+    <BreadCrumbs :items="breadcrumbItems" @navigate="handleBreadcrumbNavigation" />
 		<div class="user-guide">
 			<header class="user-guide__header">
-				<h1 class="user-guide__title">Handleiding</h1>
-				<p class="user-guide__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ea?
-				</p>
+				<h1 class="user-guide__title">{{ userGuide.title }}</h1>
+				<p class="user-guide__description">{{ userGuide.description }}</p>
 			</header>
+
+      <div class="user-guide__toc-wrapper">
+        <TableOfContents 
+          title="Op deze pagina" 
+          :items="tocItems" 
+          :active-id="activeTocId"
+          @navigate="handleTocNavigation"
+        />
+      </div>
 
       <div class="user-guide__content">
         <StepNavigation
           :current-step="currentStep"
-          :total-steps="steps.length"
+          :total-steps="sections.length"
           class="user-guide__navigation--top"
           @update:step="goToStep"
         />
 
         <div class="user-guide__main-content">
-          <component :is="currentStepComponent" />
+          <component :is="currentStepComponent" :section="currentStepData" />
         </div>
 
         <StepNavigation
           :current-step="currentStep"
-          :total-steps="steps.length"
+          :total-steps="sections.length"
           class="user-guide__navigation--bottom"
           :show-summary="true"
           @update:step="goToStep"

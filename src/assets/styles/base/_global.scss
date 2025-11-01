@@ -2,14 +2,6 @@
 @use "@/assets/styles/base/colors" as *;
 @use "@/assets/styles/base/variables" as *;
 
-/**
- * Global Styles
- * 
- * Mobile-only base styling for the entire application.
- * Enforces mobile viewport constraints and prevents desktop scaling.
- * 
- */
-
 // Root element - basic HTML setup
 :root {
 	color: $color-primary; // Primary text color

@@ -1,0 +1,147 @@
+@use '@/assets/styles/base/colors' as *;
+
+.toc {
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item-row {
+    position: relative;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: transparent;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    &:hover {
+      .toc__toggle-btn {
+        color: $color-primary;
+      }
+      .toc__link {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__item.active > &__item-row {
+    &::before {
+      background: $color-primary;
+    }
+    .toc__link {
+      color: $color-primary;
+      font-weight: 500;
+    }
+  }
+
+  &__link {
+    flex: 1;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.2s;
+  }
+
+  &__toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: color 0.2s, transform 0.3s ease;
+    border-radius: 4px;
+
+    &[aria-expanded="true"] {
+      transform: rotate(180deg);
+    }
+  }
+  
+  &__chevron-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__subsections {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 16px;
+    overflow: hidden;
+    background-color: $color-background;
+    border-radius: 4px;
+    padding: 4px 0;
+  }
+
+  &__subsection-item {
+    position: relative;
+    font-size: 0.9em;
+    padding-left: 16px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: transparent;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    &.active::before {
+      background: $color-primary;
+    }
+
+    &.active .toc__subsection-link {
+      color: $color-primary;
+      font-weight: 500;
+    }
+  }
+
+  &__subsection-link {
+    display: block;
+    padding: 6px 0;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .accordion-enter-active,
+  .accordion-leave-active {
+    transition: all 0.3s ease;
+    max-height: 500px;
+  }
+
+  .accordion-enter-from,
+  .accordion-leave-to {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
