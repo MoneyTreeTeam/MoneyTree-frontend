@@ -72,7 +72,7 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 			</div>
 
 			<!-- Legal Links -->
-			<nav class="footer__nav" aria-label="Footer navigatie" @click.prevent>
+			<nav class="footer__nav" aria-label="Footer navigatie">
 				<ul class="footer__nav-list">
 					<li class="footer__nav-item">
 						<router-link to="/algemene-voorwaarden" class="footer__nav-link">
