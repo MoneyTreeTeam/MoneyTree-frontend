@@ -57,33 +57,43 @@ useHead({
 					class="home__header-bg-image"
 				/>
 			</div>
-			<div class="home__header-content container">
-				<h1 class="home__title">
-					<span class="home__title-highlight">Groei je spaargeld</span>, zie het
-					groeien
-				</h1>
-				<p class="home__subtitle">
-					Speciaal voor jongvolwassenen die moeite hebben met sparen en hun
-					financiële groei.
-				</p>
-				<p class="home__description">
-					Worstelt jij met het opbouwen van spaargeld? Vind je het lastig om
-					consistent te blijven? MoneyTree maakt sparen inzichtelijk en
-					motiverend door je vooruitgang visueel te tonen. Zie elke euro groeien
-					en bereik eindelijk je financiële doelen.
-				</p>
+			<div class="home__header-wrapper container">
+				<div class="home__header-content">
+					<h1 class="home__title">
+						<span class="home__title-highlight">Groei je&nbsp;spaargeld,</span> zie het
+						groeien
+					</h1>
+					<p class="home__subtitle">
+						Speciaal voor jongvolwassenen die moeite hebben met sparen en hun
+						financiële groei.
+					</p>
+					<p class="home__description">
+						Worstelt jij met het opbouwen van spaargeld? Vind je het lastig om
+						consistent te blijven? MoneyTree maakt sparen inzichtelijk en
+						motiverend door je vooruitgang visueel te tonen. Zie elke euro groeien
+						en bereik eindelijk je financiële doelen.
+					</p>
 
-				<div class="home__header-cta">
-					<router-link to="/handleiding" class="home__cta-link">
-						<BaseButton
-							label="Start met groeien"
-							variant="primary"
-							size="large"
-							icon="mdi:arrow-right"
-							type="button"
-							class="home__hero-button"
-						/>
-					</router-link>
+					<div class="home__header-cta">
+						<router-link to="/handleiding" class="home__cta-link">
+							<BaseButton
+								label="Start met groeien"
+								variant="primary"
+								size="large"
+								icon="mdi:arrow-right"
+								type="button"
+								class="home__hero-button"
+							/>
+						</router-link>
+					</div>
+				</div>
+
+				<div class="home__header-image">
+					<img
+						src=""
+						alt="MoneyTree visual"
+						class="home__hero-image"
+					/>
 				</div>
 			</div>
 			

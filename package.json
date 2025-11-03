@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "lint-staged",
-    "format:item": "sh -c 'prettier --write $(find src -name \"$npm_config_file\")'"
+    "format:item": "prettier --write"
   },
   "lint-staged": {
   "*.{js,ts,vue,jsx,tsx,css,scss,html,json,md}": [
