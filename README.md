@@ -1,3 +1,5 @@
+https://moneytreeteam.github.io/MoneyTree-frontend/
+
 # MoneyTree Frontend Template
 
 > A modern, production-ready Vue 3 frontend template built with TypeScript, focusing on mobile-first responsive design and code quality.
