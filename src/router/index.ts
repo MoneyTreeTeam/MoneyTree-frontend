@@ -91,7 +91,7 @@ const routes = [
 ];
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHistory(import.meta.env.BASE_URL),
 	routes,
 	scrollBehavior(_to, _from, savedPosition) {
 		// Scroll to top on route change, or restore previous position
