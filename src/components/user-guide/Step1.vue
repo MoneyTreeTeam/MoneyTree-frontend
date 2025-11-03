@@ -39,7 +39,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="step-content">
+  <article :id="section.id" class="step-content">
     <header class="step-content__header">
       <h2 class="step-content__title">{{ section.title }}</h2>
       <p class="step-content__description">{{ section.description }}</p>

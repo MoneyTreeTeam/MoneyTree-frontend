@@ -1,0 +1,228 @@
+@use "../../base/colors" as *;
+@use "../../base/typography" as *;
+@use "../../base/mixins" as *;
+@use "../../base/variables" as *;
+ 
+.sidebar {
+    background-color: $white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    left: -100%;
+    max-width: 350px;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    transition: left 0.3s ease-in-out;
+    width: 100%;
+    z-index: 1001;
+ 
+    // Mobile responsive only
+    @media (max-width: 767px) {
+        max-width: 300px;
+    }
+ 
+    &--open {
+        left: 0;
+    }
+ 
+    &__header {
+        align-items: center;
+        background-color: $white;
+        border-bottom: 1px solid rgba($color-primary, 0.15);
+        display: flex;
+        justify-content: space-between;
+        padding: 0.875rem 1.25rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+ 
+    &__brand {
+        align-items: center;
+        display: flex;
+        gap: 0.75rem;
+    }
+ 
+    &__logo {
+        width: 2rem;
+        height: 2rem;
+        object-fit: contain;
+    }
+ 
+    &__title {
+        color: $color-primary;
+        font-family: $font-primary;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+ 
+    &__close {
+        align-items: center;
+        background: none;
+        border: none;
+        color: $color-primary;
+        cursor: pointer;
+        display: flex;
+        font-size: 1.75rem;
+        padding: 0;
+        transition: opacity 0.2s ease;
+ 
+        &:hover {
+            opacity: 0.9;
+        }
+        
+        svg {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+    }
+ 
+    &__nav {
+        padding: 1rem 0;
+    }
+ 
+    &__menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+ 
+    &__menu-item {
+        margin-bottom: 0.25rem;
+    }
+ 
+    &__menu-button,
+    &__menu-link {
+        align-items: center;
+        background: none;
+        border: none;
+        border-left: 3px solid transparent;
+        color: $color-text-primary;
+        cursor: pointer;
+        display: flex;
+        font-family: $font-secondary;
+        font-size: $font-size-p3;
+        font-weight: $font-weight-medium;
+        gap: 0.75rem;
+        padding: 0.875rem 1.25rem;
+        text-align: left;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        width: 100%;
+ 
+        &:hover {
+            background-color: rgba($color-primary, 0.05);
+            border-left-color: $color-primary;
+            color: $color-primary;
+        }
+ 
+        &.router-link-active,
+        &.router-link-exact-active {
+            background-color: rgba($color-primary, 0.1);
+            border-left-color: $color-primary;
+            color: $color-primary;
+            font-weight: $font-weight-semibold;
+        }
+    }
+ 
+    &__menu-button {
+        justify-content: space-between;
+ 
+        &.expanded {
+            background-color: rgba($color-primary, 0.05);
+            color: $color-primary;
+        }
+    }
+ 
+    &__menu-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 1;
+    }
+ 
+    &__menu-icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+ 
+    &__menu-chevron {
+        font-size: 1.25rem;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+ 
+        &--expanded {
+            transform: rotate(180deg);
+        }
+    }
+ 
+    &__submenu {
+        background-color: rgba($color-background, 0.5);
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0;
+    }
+ 
+    &__submenu-link {
+        border-left: 3px solid transparent;
+        color: $color-text-secondary;
+        display: block;
+        font-family: $font-secondary;
+        font-size: $font-size-p4;
+        font-weight: $font-weight-normal;
+        padding: 0.75rem 1.25rem 0.75rem 3.5rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+ 
+        &:hover {
+            background-color: rgba($color-primary, 0.05);
+            border-left-color: $color-primary;
+            color: $color-primary;
+        }
+ 
+        &.router-link-active,
+        &.router-link-exact-active {
+            background-color: rgba($color-primary, 0.1);
+            border-left-color: $color-primary;
+            color: $color-primary;
+            font-weight: $font-weight-semibold;
+        }
+    }
+}
+ 
+// Backdrop overlay (separate from .sidebar)
+.sidebar__backdrop {
+    @include backdrop-overlay;
+    z-index: 1000;
+    cursor: pointer;
+ 
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+ 
+// Responsive adjustments
+@media (max-width: 480px) {
+    .sidebar {
+        max-width: 350px;
+        width: 80%;
+ 
+        &__header {
+            padding: 0.875rem 1rem;
+        }
+ 
+        &__menu-button,
+        &__menu-link {
+            font-size: $font-size-p4;
+            padding: 0.75rem 1rem;
+        }
+ 
+        &__submenu-link {
+            font-size: $font-size-p5;
+            padding: 0.625rem 1rem 0.625rem 3rem;
+        }
+    }
+}

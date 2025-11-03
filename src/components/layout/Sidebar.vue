@@ -1,205 +1,189 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Icon } from '@iconify/vue';
-
-// Define menu items structure
-interface MenuItem {
-  text: string;
-  link?: string;
-  subItems?: MenuItem[];
-}
-
-const menuItems = ref<MenuItem[]>([
-  {
-    text: 'Contact',
-    link: '/contact'
-  },
-  {
-    text: 'Documentatie',
-    subItems: [
-      { text: 'Aan de slag', link: '/docs/getting-started' },
-      { text: 'Functies', link: '/docs/features' },
-      { text: 'Problemen oplossen', link: '/docs/troubleshooting' },
-      { text: 'Onderhoud & verzorging', link: '/docs/maintenance' },
-    ]
+  /**
+   * Sidebar Component
+   *
+   * Mobile-responsive sidebar navigation with backdrop overlay.
+   * Supports nested menu items with expand/collapse functionality.
+   *
+   * @features
+   * - Slides in from left on mobile
+   * - Backdrop overlay with blur effect
+   * - JSON-based menu configuration
+   * - Active route highlighting
+   * - Nested submenu support with icons
+   * - Click outside to close
+   * - Accessible navigation
+   *
+   * @dependencies
+   * - @iconify/vue - Menu icons
+   * - vue-router - Navigation
+   * - sidebarContent.json - Menu data
+   *
+   * @emits
+   * - close - Emitted when sidebar should close
+   *
+   * @module SidebarComponent
+   */
+ 
+  import { ref, nextTick } from "vue";
+  import { useRouter, useRoute } from "vue-router";
+  import { Icon } from "@iconify/vue";
+  import sidebarContent from "@/data/components/layout/sidebarContent.json";
+ 
+  // Define menu items structure
+  interface SubMenuItem {
+    id: string;
+    text: string;
+    link: string;
   }
-]);
-
-// Handle submenu toggles
-const isExpanded = ref<{ [key: string]: boolean }>({});
-
-const toggleSubmenu = (menuText: string) => {
-  isExpanded.value[menuText] = !isExpanded.value[menuText];
-};
-
-// Add props and emits
-const props = defineProps<{
-  isOpen: boolean
-}>();
-
-const emit = defineEmits<{
-  'close': []
-}>();
-
-// Add close handler
-const handleClose = () => {
-  emit('close');
-};
+ 
+  interface MenuItem {
+    id: string;
+    text: string;
+    link?: string;
+    icon?: string;
+    subItems?: SubMenuItem[];
+  }
+ 
+  // Props and emits
+  defineProps<{
+    isOpen: boolean;
+  }>();
+ 
+  const emit = defineEmits<{
+    close: [];
+  }>();
+ 
+  // Get data from JSON
+  const sidebar = sidebarContent.sidebar;
+  const menuItems = ref<MenuItem[]>(sidebar.menuItems);
+ 
+  // Router setup
+  const router = useRouter();
+  const route = useRoute();
+ 
+  // Handle submenu toggles
+  const isExpanded = ref<{ [key: string]: boolean }>({});
+ 
+  const toggleSubmenu = (menuId: string) => {
+    isExpanded.value[menuId] = !isExpanded.value[menuId];
+  };
+ 
+  // Close handler
+  const handleClose = () => {
+    emit("close");
+  };
+ 
+  // Handle navigation with hash support
+  const handleNavigation = async (link: string) => {
+    // Close the sidebar first
+    handleClose();
+ 
+    // Check if link contains a hash
+    const [path, hash] = link.split("#");
+ 
+    if (hash) {
+      // Navigate to the page first
+      if (route.path !== path) {
+        await router.push(path);
+      }
+ 
+      // Wait for the page to render
+      await nextTick();
+ 
+      // Small delay to ensure UserGuide component is mounted
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          const navbarHeight = 72;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+ 
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+ 
+          // Add highlight effect
+          element.classList.add("highlighted");
+          setTimeout(() => {
+            element.classList.remove("highlighted");
+          }, 2000);
+        }
+      }, 100);
+    } else {
+      // Regular navigation without hash
+      await router.push(link);
+    }
+  };
 </script>
-
+ 
 <template>
-  <aside class="sidebar" :class="{ 'sidebar--open': isOpen }">
+  <!-- Backdrop overlay -->
+  <div aria-hidden="true" class="sidebar__backdrop" :class="{ 'is-open': isOpen }" @click="handleClose"></div>
+ 
+  <!-- Sidebar -->
+  <aside class="sidebar" :class="{ 'sidebar--open': isOpen }" role="navigation" aria-label="Hoofdnavigatie">
+    <!-- Header -->
     <div class="sidebar__header">
       <div class="sidebar__brand">
-        <img src="/images/logos/moneytree-logo-green.png" alt="MoneyTree" class="sidebar__logo" />
-        <h1 class="sidebar__title">MoneyTree</h1>
+        <img src="/images/logos/moneytree-logo-green.png" alt="MoneyTree Logo" class="sidebar__logo" />
+        <h2 class="sidebar__title">MoneyTree</h2>
       </div>
-      <button class="sidebar__close" @click="handleClose">
+      <button class="sidebar__close" aria-label="Sluit sidebar" @click="handleClose">
         <Icon icon="mdi:close" />
       </button>
     </div>
-
+ 
+    <!-- Navigation -->
     <nav class="sidebar__nav">
       <ul class="sidebar__menu">
-        <li v-for="item in menuItems" :key="item.text" class="sidebar__menu-item">
+        <li v-for="item in menuItems" :key="item.id" class="sidebar__menu-item">
+          <!-- Menu item with submenu -->
           <template v-if="item.subItems">
-            <button 
-              class="sidebar__menu-button" 
-              @click="toggleSubmenu(item.text)"
-              :class="{ 'expanded': isExpanded[item.text] }"
+            <button
+              class="sidebar__menu-button"
+              :class="{ expanded: isExpanded[item.id] }"
+              :aria-expanded="isExpanded[item.id]"
+              :aria-label="`${item.text} menu ${isExpanded[item.id] ? 'sluiten' : 'openen'}`"
+              @click="toggleSubmenu(item.id)"
             >
-              {{ item.text }}
-              <Icon 
-                :icon="isExpanded[item.text] ? 'mdi:chevron-up' : 'mdi:chevron-down'"
-                class="sidebar__menu-icon"
+              <div class="sidebar__menu-content">
+                <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
+                <span>{{ item.text }}</span>
+              </div>
+              <Icon
+                :icon="isExpanded[item.id] ? 'mdi:chevron-up' : 'mdi:chevron-down'"
+                class="sidebar__menu-chevron"
+                :class="{ 'sidebar__menu-chevron--expanded': isExpanded[item.id] }"
               />
             </button>
-            <ul v-if="isExpanded[item.text]" class="sidebar__submenu">
-              <li v-for="subItem in item.subItems" :key="subItem.text">
-                <router-link :to="subItem.link" class="sidebar__submenu-link">
+            <ul v-if="isExpanded[item.id]" class="sidebar__submenu">
+              <li v-for="subItem in item.subItems" :key="subItem.id">
+                <a
+                  href="javascript:void(0)"
+                  class="sidebar__submenu-link"
+                  @click="handleNavigation(subItem.link)"
+                >
                   {{ subItem.text }}
-                </router-link>
+                </a>
               </li>
             </ul>
           </template>
-          <router-link 
-            v-else 
-            :to="item.link" 
-            class="sidebar__menu-link"
-          >
-            {{ item.text }}
+ 
+          <!-- Menu -->
+          <router-link v-else :to="item.link" class="sidebar__menu-link" @click="handleClose">
+            <div class="sidebar__menu-content">
+              <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
+              <span>{{ item.text }}</span>
+            </div>
           </router-link>
         </li>
       </ul>
     </nav>
   </aside>
 </template>
-
+ 
 <style scoped lang="scss">
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -100%; // Changed from right to left
-  height: 100vh;
-  width: 100%;
-  max-width: 300px;
-  background-color: $white;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); // Changed shadow direction
-  z-index: 1000;
-  overflow-y: auto;
-  transition: left 0.3s ease-in-out; // Changed from right to left
-
-  &--open {
-    left: 0; // Changed from right to left
-  }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid $color-divider;
-  }
-
-  &__brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  &__logo {
-    height: 24px;
-    width: auto;
-  }
-
-  &__title {
-    font-size: 1.25rem;
-    color: $color-primary;
-    font-weight: 600;
-  }
-
-  &__close {
-    padding: 0.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: $color-primary;
-  }
-
-  &__nav {
-    padding: 1rem;
-  }
-
-  &__menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  &__menu-item {
-    margin-bottom: 0.5rem;
-  }
-
-  &__menu-button,
-  &__menu-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.75rem;
-    color: $color-primary;
-    text-decoration: none;
-    border: none;
-    background: none;
-    font-size: 1rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $color-background;
-    }
-  }
-
-  &__submenu {
-    list-style: none;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-  }
-
-  &__submenu-link {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: $color-text-secondary;
-    text-decoration: none;
-    font-size: 0.9rem;
-
-    &:hover {
-      color: $color-primary;
-      background-color: $color-background;
-    }
-  }
-
-  &__menu-icon {
-    font-size: 1.25rem;
-  }
-}
+  @use "@/assets/styles/components/layout/sidebar.scss";
 </style>
