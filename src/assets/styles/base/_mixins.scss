@@ -42,6 +42,33 @@
 }
 
 /* =======================================
+   Backdrop Overlay Mixin
+   ======================================= */
+ 
+// Backdrop overlay for modals, sidebars, etc.
+@mixin backdrop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px); // Safari support
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+ 
+    // Automatically show when parent has 'is-open' or 'open' class
+    .is-open &,
+    .open & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* =======================================
    Responsive Container Mixins
    ======================================= */
 

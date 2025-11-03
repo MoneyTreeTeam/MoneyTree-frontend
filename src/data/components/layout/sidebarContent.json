@@ -1,0 +1,72 @@
+{
+	"sidebar": {
+		"branding": {
+			"logo": "/images/logos/moneytree-logo-green.png",
+			"title": "MoneyTree",
+			"alt": "MoneyTree Logo"
+		},
+		"menuItems": [
+			{
+				"id": "home",
+				"text": "Home",
+				"link": "/",
+				"icon": "mdi:home"
+			},
+			{
+				"id": "user-guide",
+				"text": "Handleiding",
+				"icon": "mdi:book-open-page-variant",
+				"subItems": [
+					{
+						"id": "step-1",
+						"text": "Stap 1: Aan de slag",
+						"link": "/handleiding#step-1"
+					},
+					{
+						"id": "step-2",
+						"text": "Stap 2: Eerste gebruik",
+						"link": "/handleiding#step-2"
+					},
+					{
+						"id": "step-3",
+						"text": "Stap 3: Batterij & Voeding",
+						"link": "/handleiding#step-3"
+					},
+					{
+						"id": "step-4",
+						"text": "Stap 4: Probleemoplossing",
+						"link": "/handleiding#step-4"
+					}
+				]
+			},
+			{
+				"id": "contact",
+				"text": "Contact",
+				"link": "/contact",
+				"icon": "mdi:email"
+			},
+			{
+				"id": "policies",
+				"text": "Juridisch",
+				"icon": "mdi:shield-check",
+				"subItems": [
+					{
+						"id": "terms",
+						"text": "Algemene voorwaarden",
+						"link": "/algemene-voorwaarden"
+					},
+					{
+						"id": "privacy",
+						"text": "Privacyverklaring",
+						"link": "/privacyverklaring"
+					},
+					{
+						"id": "cookies",
+						"text": "Cookies",
+						"link": "/cookies"
+					}
+				]
+			}
+		]
+	}
+}
