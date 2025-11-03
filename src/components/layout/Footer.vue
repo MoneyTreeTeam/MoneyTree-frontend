@@ -41,9 +41,9 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 				</div>
 			</router-link>
 			<!-- Social Media Links -->
-			<div class="footer__socials">
+			<div class="footer__socials" @click.prevent>
 				<a
-					href="https://twitter.com/moneytree"
+					href="#"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="footer__social-link"
@@ -52,7 +52,7 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 					<Icon icon="mdi:twitter" class="footer__social-icon" />
 				</a>
 				<a
-					href="https://linkedin.com/company/moneytree"
+					href="#"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="footer__social-link"
@@ -61,7 +61,7 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 					<Icon icon="mdi:linkedin" class="footer__social-icon" />
 				</a>
 				<a
-					href="https://instagram.com/moneytree"
+					href="#"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="footer__social-link"
@@ -72,7 +72,7 @@ import DividerLine from "@/components/ui/DividerLine.vue";
 			</div>
 
 			<!-- Legal Links -->
-			<nav class="footer__nav" aria-label="Footer navigatie">
+			<nav class="footer__nav" aria-label="Footer navigatie" @click.prevent>
 				<ul class="footer__nav-list">
 					<li class="footer__nav-item">
 						<router-link to="/algemene-voorwaarden" class="footer__nav-link">

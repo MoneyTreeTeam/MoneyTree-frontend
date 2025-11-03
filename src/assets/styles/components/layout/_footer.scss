@@ -1,6 +1,7 @@
 @use "@/assets/styles/base/colors" as *;
 @use "@/assets/styles/base/typography" as *;
 @use "@/assets/styles/base/variables" as *;
+@use "@/assets/styles/base/mixins" as *;
 
 .footer {
 	width: 100%;
@@ -14,6 +15,8 @@
 		align-items: flex-start;
 		gap: 1.5rem;
 		width: 100%;
+		margin: 0 auto;
+		@include responsive-container;
 	}
 
 	&__branding {

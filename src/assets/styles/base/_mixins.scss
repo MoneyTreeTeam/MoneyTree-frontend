@@ -40,3 +40,34 @@
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+/* =======================================
+   Responsive Container Mixins
+   ======================================= */
+
+// Apply responsive max-width (1140px desktop / 767px mobile)
+@mixin responsive-container {
+	// Desktop: max-width 1140px
+	@media (min-width: 768px) {
+		max-width: 1140px;
+	}
+	
+	// Mobile: max-width 767px
+	@media (max-width: 767px) {
+		max-width: 767px;
+	}
+}
+
+// Apply only desktop max-width (1140px)
+@mixin container-desktop {
+	@media (min-width: 768px) {
+		max-width: 1140px;
+	}
+}
+
+// Apply only mobile max-width (767px)
+@mixin container-mobile {
+	@media (max-width: 767px) {
+		max-width: 767px;
+	}
+}

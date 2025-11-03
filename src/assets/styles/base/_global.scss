@@ -9,11 +9,10 @@
 	font-weight: 400; // Normal font weight
 }
 
-// HTML element - fundamental document setup with mobile-only constraints
+// HTML element - fundamental document setup
 html {
 	box-sizing: border-box; // Include padding/border in width
 	margin: 0 auto; // Center on wider screens
-	max-width: 767px; // Mobile-only max viewport
 	overflow-x: hidden; // Prevent horizontal scroll
 	scroll-behavior: smooth; // Smooth scrolling
 }
@@ -25,14 +24,21 @@ html {
 	box-sizing: inherit; // Efficient box-sizing inheritance
 }
 
-// Body - main document styling with mobile constraints
+// Body - main document styling
 body {
 	background-color: $color-primary; // Match navbar/footer background
 	margin: 0; // Remove default margin
-	max-width: 767px; // Match HTML max-width
 	min-height: 100vh; // Full viewport height
 	overflow-x: hidden; // Prevent horizontal scroll
 	position: relative; // Positioning context
+}
+
+// Mobile-only constraint (≤767px)
+@media (max-width: 767px) {
+	html,
+	body {
+		max-width: 767px; // Mobile-only max viewport
+	}
 }
 
 // Input autofill styling
@@ -55,12 +61,18 @@ input:focus {
 	outline: none; // Remove default browser outline
 }
 
-// App container - ensures mobile-only constraint
+// App container - responsive width
 #app {
 	margin: 0 auto; // Center horizontally
-	max-width: 767px; // Mobile-only width
 	min-height: 100vh; // Full height
 	position: relative; // Positioning context
+}
+
+// Mobile-only constraint (≤767px)
+@media (max-width: 767px) {
+	#app {
+		max-width: 767px; // Mobile-only width
+	}
 }
 
 /* =======================================
@@ -94,4 +106,15 @@ a:hover,
 [role="button"]:hover,
 .clickable:hover {
 	opacity: 0.9; // Slightly reduce opacity on hover
+}
+
+/* =======================================
+   Container Utility Class
+   ======================================= */
+
+// General container for centering content with responsive max-width
+.container {
+	width: 100%;
+	margin: 0 auto;
+	@include responsive-container;
 }

@@ -57,7 +57,7 @@ useHead({
 					class="home__header-bg-image"
 				/>
 			</div>
-			<div class="home__header-content">
+			<div class="home__header-content container">
 				<h1 class="home__title">
 					<span class="home__title-highlight">Groei je spaargeld</span>, zie het
 					groeien
@@ -86,97 +86,102 @@ useHead({
 					</router-link>
 				</div>
 			</div>
-			<ScrollHint target-id="features" />
+			
+			<ScrollHint target-id="features" class="container" />
 		</header>
 
 		<!-- Features Section -->
-		<section id="features" class="home__features">
+		<section id="features" class="home__features container">
 			<h2 class="home__features-title">Waarom MoneyTree?</h2>
 			<p class="home__features-description">
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 				Odio mollitia asperiores placeat magni minima iste id quidem suscipit nam non.
 			</p>
 
-			<BaseContainer>
-				<div class="home__feature-content">
-					<div class="home__feature-icon">
-						<Icon icon="mdi:lightbulb-on-outline" />
+			<div class="home__features-list">
+				<BaseContainer>
+					<div class="home__feature-content">
+						<div class="home__feature-icon">
+							<Icon icon="mdi:lightbulb-on-outline" />
+						</div>
+						<div class="home__feature-text">
+							<h3 class="home__feature-title">Visuele progressie</h3>
+							<p class="home__feature-description">
+								Het smart object geeft direct visuele feedback .. wanneer je
+								spaart. Zie je vooruitgang fysiek groeien op je bureau.
+							</p>
+						</div>
 					</div>
-					<div class="home__feature-text">
-						<h3 class="home__feature-title">Visuele progressie</h3>
-						<p class="home__feature-description">
-							Het smart object geeft direct visuele feedback .. wanneer je
-							spaart. Zie je vooruitgang fysiek groeien op je bureau.
-						</p>
-					</div>
-				</div>
-			</BaseContainer>
+				</BaseContainer>
 
-			<BaseContainer>
-				<div class="home__feature-content">
-					<div class="home__feature-icon">
-						<Icon icon="mdi:hand-coin" />
+				<BaseContainer>
+					<div class="home__feature-content">
+						<div class="home__feature-icon">
+							<Icon icon="mdi:hand-coin" />
+						</div>
+						<div class="home__feature-text">
+							<h3 class="home__feature-title">Haalbare doelen</h3>
+							<p class="home__feature-description">
+								Stel realistische spaardoelen in en volg je voortgang stap voor
+								stap. Klein beginnen, groot eindigen.
+							</p>
+						</div>
 					</div>
-					<div class="home__feature-text">
-						<h3 class="home__feature-title">Haalbare doelen</h3>
-						<p class="home__feature-description">
-							Stel realistische spaardoelen in en volg je voortgang stap voor
-							stap. Klein beginnen, groot eindigen.
-						</p>
-					</div>
-				</div>
-			</BaseContainer>
+				</BaseContainer>
 
-			<BaseContainer>
-				<div class="home__feature-content">
-					<div class="home__feature-icon">
-						<Icon icon="mdi:chip" />
+				<BaseContainer>
+					<div class="home__feature-content">
+						<div class="home__feature-icon">
+							<Icon icon="mdi:chip" />
+						</div>
+						<div class="home__feature-text">
+							<h3 class="home__feature-title">Circuit Playground Express</h3>
+							<p class="home__feature-description">
+								Gebouwd met professionele hardware. De CPX bevat sensoren,
+								NeoPixel LED's en speaker voor een complete interactieve ervaring.
+							</p>
+						</div>
 					</div>
-					<div class="home__feature-text">
-						<h3 class="home__feature-title">Circuit Playground Express</h3>
-						<p class="home__feature-description">
-							Gebouwd met professionele hardware. De CPX bevat sensoren,
-							NeoPixel LED's en speaker voor een complete interactieve ervaring.
-						</p>
-					</div>
-				</div>
-			</BaseContainer>
+				</BaseContainer>
 
-			<BaseContainer>
-				<div class="home__feature-content">
-					<div class="home__feature-icon">
-						<Icon icon="mdi:trophy" />
+				<BaseContainer>
+					<div class="home__feature-content">
+						<div class="home__feature-icon">
+							<Icon icon="mdi:trophy" />
+						</div>
+						<div class="home__feature-text">
+							<h3 class="home__feature-title">Jouw persoonlijke vooruitgang</h3>
+							<p class="home__feature-description">
+								Elke stap die je zet is een prestatie. Maak sparen tot iets groots
+								voor jezelf en vier je eigen succes.
+							</p>
+						</div>
 					</div>
-					<div class="home__feature-text">
-						<h3 class="home__feature-title">Jouw persoonlijke vooruitgang</h3>
-						<p class="home__feature-description">
-							Elke stap die je zet is een prestatie. Maak sparen tot iets groots
-							voor jezelf en vier je eigen succes.
-						</p>
-					</div>
-				</div>
-			</BaseContainer>
+				</BaseContainer>
+			</div>
 		</section>
 
-		<div class="home__divider-wrapper">
+		<div class="home__divider-wrapper container">
 			<DividerLine />
 		</div>
 		
 		<!-- CTA Section -->
 		<section id="cta" class="home__cta-section">
-			<h2 class="home__cta-title">Klaar om te groeien?</h2>
-			<p class="home__cta-description">
-				Leer hoe MoneyTree jou kan helpen met onze uitgebreide handleiding
-			</p>
-			<router-link to="/handleiding" class="home__cta-link">
-				<BaseButton
-					label="Bekijk de handleiding"
-					variant="primary"
-					size="medium"
-					icon="mdi:book-open-page-variant"
-					type="button"
-				/>
-			</router-link>
+			<div class="home__cta-section-content container">
+				<h2 class="home__cta-title">Klaar om te groeien?</h2>
+				<p class="home__cta-description">
+					Leer hoe MoneyTree jou kan helpen met onze uitgebreide handleiding
+				</p>
+				<router-link to="/handleiding" class="home__cta-link">
+					<BaseButton
+						label="Bekijk de handleiding"
+						variant="primary"
+						size="medium"
+						icon="mdi:book-open-page-variant"
+						type="button"
+					/>
+				</router-link>
+			</div>
 		</section>
 	</GuestLayout>
 </template>

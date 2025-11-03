@@ -150,42 +150,42 @@ const currentStepComponent = computed(() => {
 
 <template>
 	<GuestLayout>
-    <BreadCrumbs :items="breadcrumbItems" @navigate="handleBreadcrumbNavigation" />
-		<div class="user-guide">
-			<header class="user-guide__header">
-				<h1 class="user-guide__title">{{ userGuide.title }}</h1>
-				<p class="user-guide__description">{{ userGuide.description }}</p>
-			</header>
+		<BreadCrumbs :items="breadcrumbItems" @navigate="handleBreadcrumbNavigation" />
+		<div class="user-guide container">
+				<header class="user-guide__header">
+					<h1 class="user-guide__title">{{ userGuide.title }}</h1>
+					<p class="user-guide__description">{{ userGuide.description }}</p>
+				</header>
 
-      <div class="user-guide__toc-wrapper">
-        <TableOfContents 
-          title="Op deze pagina" 
-          :items="tocItems" 
-          :active-id="activeTocId"
-          @navigate="handleTocNavigation"
-        />
-      </div>
+				<div class="user-guide__toc-wrapper">
+					<TableOfContents 
+						title="Op deze pagina" 
+						:items="tocItems" 
+						:active-id="activeTocId"
+						@navigate="handleTocNavigation"
+					/>
+				</div>
 
-      <div class="user-guide__content">
-        <StepNavigation
-          :current-step="currentStep"
-          :total-steps="sections.length"
-          class="user-guide__navigation--top"
-          @update:step="goToStep"
-        />
+				<div class="user-guide__content">
+					<StepNavigation
+						:current-step="currentStep"
+						:total-steps="sections.length"
+						class="user-guide__navigation--top"
+						@update:step="goToStep"
+					/>
 
-        <div class="user-guide__main-content">
-          <component :is="currentStepComponent" :section="currentStepData" />
-        </div>
+					<div class="user-guide__main-content">
+						<component :is="currentStepComponent" :section="currentStepData" />
+					</div>
 
-        <StepNavigation
-          :current-step="currentStep"
-          :total-steps="sections.length"
-          class="user-guide__navigation--bottom"
-          :show-summary="true"
-          @update:step="goToStep"
-        />
-      </div>
+					<StepNavigation
+						:current-step="currentStep"
+						:total-steps="sections.length"
+						class="user-guide__navigation--bottom"
+						:show-summary="true"
+						@update:step="goToStep"
+					/>
+				</div>
 		</div>
 	</GuestLayout>
 </template>

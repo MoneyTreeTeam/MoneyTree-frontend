@@ -1,4 +1,5 @@
 @use "../../base/colors" as *;
+@use "../../base/mixins" as *;
 
 .navbar {
 	width: 100%;
@@ -12,6 +13,7 @@
 
 	&__container {
 		width: 100%;
+		margin: 0 auto;
 		padding: 0.875rem 1.25rem;
 		display: flex;
 		justify-content: space-between;
