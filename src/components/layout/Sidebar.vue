@@ -171,8 +171,8 @@
             </ul>
           </template>
  
-          <!-- Menu -->
-          <router-link v-else :to="item.link" class="sidebar__menu-link" @click="handleClose">
+          <!-- Regular menu item -->
+          <router-link v-else :to="item.link || '/'" class="sidebar__menu-link" @click="handleClose">
             <div class="sidebar__menu-content">
               <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
               <span>{{ item.text }}</span>
