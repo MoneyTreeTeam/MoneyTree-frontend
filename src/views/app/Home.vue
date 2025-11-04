@@ -3,7 +3,7 @@
  * Home View
  *
  * Landing page for MoneyTree smart object guide.
- * Target audience: Young adults who struggle with saving or their saving progress
+ * Target audience: Young adults who struggle with saving or their saving progress.
  *
  * @features
  * - Hero header with value proposition and background image
@@ -90,7 +90,7 @@ useHead({
 
 				<div class="home__header-image">
 					<img
-						src=""
+						src="/images/moneytree-header-landing-page.png"
 						alt="MoneyTree visual"
 						class="home__hero-image"
 					/>

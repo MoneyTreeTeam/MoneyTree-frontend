@@ -128,20 +128,4 @@
     color: #000;
     text-decoration: none;
   }
-
-  .accordion-enter-active,
-  .accordion-leave-active {
-    transition: all 0.3s ease;
-    max-height: 500px;
-  }
-
-  .accordion-enter-from,
-  .accordion-leave-to {
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 }

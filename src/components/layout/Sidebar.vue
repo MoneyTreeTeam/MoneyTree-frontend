@@ -16,8 +16,9 @@
    *
    * @dependencies
    * - @iconify/vue - Menu icons
-   * - vue-router - Navigation
-   * - sidebarContent.json - Menu data
+   * - vue-router (router-link) - Declarative navigation
+   * - sidebarContent.json - Static menu structure
+   * - userGuideContent.json - Dynamic user guide content
    *
    * @emits
    * - close - Emitted when sidebar should close
@@ -25,24 +26,18 @@
    * @module SidebarComponent
    */
  
-  import { ref, nextTick } from "vue";
-  import { useRouter, useRoute } from "vue-router";
+  import { ref, computed, nextTick } from "vue";
   import { Icon } from "@iconify/vue";
   import sidebarContent from "@/data/components/layout/sidebarContent.json";
+  import userGuideContent from "@/data/views/app/userGuideContent.json";
  
   // Define menu items structure
-  interface SubMenuItem {
-    id: string;
-    text: string;
-    link: string;
-  }
- 
   interface MenuItem {
     id: string;
-    text: string;
-    link?: string;
+    label: string;
+    path?: string;
     icon?: string;
-    subItems?: SubMenuItem[];
+    children?: MenuItem[];
   }
  
   // Props and emits
@@ -54,13 +49,36 @@
     close: [];
   }>();
  
-  // Get data from JSON
-  const sidebar = sidebarContent.sidebar;
-  const menuItems = ref<MenuItem[]>(sidebar.menuItems);
- 
-  // Router setup
-  const router = useRouter();
-  const route = useRoute();
+  // --- DYNAMIC MENU CONSTRUCTION ---
+  /**
+   * Build complete menu tree with dynamically injected user guide structure
+   * Transforms static menu items from JSON into hierarchical navigation
+   * Injects user guide sections and subsections as nested children
+   */
+  const menuTree = computed((): MenuItem[] => {
+    // Deep clone sidebar menu to avoid mutating original data
+    const sidebar = JSON.parse(JSON.stringify(sidebarContent.sidebar.menuItems));
+    
+    // Locate user guide menu item for dynamic content injection
+    const userGuideItem = sidebar.find((item: MenuItem) => item.id === 'user-guide');
+
+    if (userGuideItem) {
+      // Build user guide submenu structure from content JSON
+      userGuideItem.children = userGuideContent.userGuide.sections.map(section => ({
+        id: section.id,
+        label: section.title,
+        path: `/handleiding#${section.id}`,
+        // Create nested subsection menu items
+        children: section.subSections.map(sub => ({
+          id: sub.id,
+          step: sub.step,
+          title: sub.title,
+          path: `/handleiding#${sub.id}`,
+        })),
+      }));
+    }
+    return sidebar;
+  });
  
   // Handle submenu toggles
   const isExpanded = ref<{ [key: string]: boolean }>({});
@@ -74,57 +92,52 @@
     emit("close");
   };
  
-  // Handle navigation with hash support
-  const handleNavigation = async (link: string) => {
-    // Close the sidebar first
+  /**
+   * Handle pre-navigation logic before router-link navigation completes
+   * Closes sidebar and sets up scroll-to-anchor behavior for hash links
+   *
+   * @param link - The destination path, optionally including hash anchor
+   */
+  const handleLinkClick = async (link: string) => {
+    // Close sidebar immediately when link is clicked
     handleClose();
- 
-    // Check if link contains a hash
-    const [path, hash] = link.split("#");
- 
+
+    // Extract hash anchor from link if present
+    const [, hash] = link.split("#");
     if (hash) {
-      // Navigate to the page first
-      if (route.path !== path) {
-        await router.push(path);
-      }
- 
-      // Wait for the page to render
+      // Wait for router navigation and DOM update
       await nextTick();
- 
-      // Small delay to ensure UserGuide component is mounted
+
+      // Delay ensures target element is fully mounted and accessible
       setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
+          // Calculate scroll position accounting for fixed navbar
           const navbarHeight = 72;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
- 
+
+          // Smoothly scroll to target element
           window.scrollTo({
             top: offsetPosition,
             behavior: "smooth",
           });
- 
-          // Add highlight effect
+
+          // Apply temporary highlight effect for visual feedback
           element.classList.add("highlighted");
           setTimeout(() => {
             element.classList.remove("highlighted");
           }, 2000);
         }
       }, 100);
-    } else {
-      // Regular navigation without hash
-      await router.push(link);
     }
   };
 </script>
  
 <template>
-  <!-- Backdrop overlay -->
   <div aria-hidden="true" class="sidebar__backdrop" :class="{ 'is-open': isOpen }" @click="handleClose"></div>
- 
-  <!-- Sidebar -->
+
   <aside class="sidebar" :class="{ 'sidebar--open': isOpen }" role="navigation" aria-label="Hoofdnavigatie">
-    <!-- Header -->
     <div class="sidebar__header">
       <div class="sidebar__brand">
         <img src="/images/logos/moneytree-logo-green.png" alt="MoneyTree Logo" class="sidebar__logo" />
@@ -134,56 +147,92 @@
         <Icon icon="mdi:close" />
       </button>
     </div>
- 
-    <!-- Navigation -->
+
     <nav class="sidebar__nav">
       <ul class="sidebar__menu">
-        <li v-for="item in menuItems" :key="item.id" class="sidebar__menu-item">
-          <!-- Menu item with submenu -->
-          <template v-if="item.subItems">
+        <li v-for="item in menuTree" :key="item.id" class="sidebar__menu-item">
+          <!-- Case 1: Item has children -> Render a button to toggle submenu -->
+          <template v-if="item.children && item.children.length">
             <button
               class="sidebar__menu-button"
               :class="{ expanded: isExpanded[item.id] }"
               :aria-expanded="isExpanded[item.id]"
-              :aria-label="`${item.text} menu ${isExpanded[item.id] ? 'sluiten' : 'openen'}`"
+              :aria-label="`${item.label} menu ${isExpanded[item.id] ? 'sluiten' : 'openen'}`"
               @click="toggleSubmenu(item.id)"
             >
               <div class="sidebar__menu-content">
                 <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
-                <span>{{ item.text }}</span>
+                <span>{{ item.label }}</span>
               </div>
               <Icon
-                :icon="isExpanded[item.id] ? 'mdi:chevron-up' : 'mdi:chevron-down'"
+                icon="mdi:chevron-down"
                 class="sidebar__menu-chevron"
                 :class="{ 'sidebar__menu-chevron--expanded': isExpanded[item.id] }"
               />
             </button>
-            <ul v-if="isExpanded[item.id]" class="sidebar__submenu">
-              <li v-for="subItem in item.subItems" :key="subItem.id">
-                <a
-                  href="javascript:void(0)"
-                  class="sidebar__submenu-link"
-                  @click="handleNavigation(subItem.link)"
-                >
-                  {{ subItem.text }}
-                </a>
-              </li>
-            </ul>
+            <Transition name="accordion">
+              <ul v-if="isExpanded[item.id]" class="sidebar__submenu">
+                <li v-for="child in item.children" :key="child.id">
+                  <!-- Level 2: Child with its own children -->
+                  <template v-if="child.children && child.children.length">
+                    <button
+                      class="sidebar__submenu-button"
+                      :class="{ expanded: isExpanded[child.id] }"
+                      :aria-expanded="isExpanded[child.id]"
+                      @click="toggleSubmenu(child.id)"
+                    >
+                      <span>{{ child.label }}</span>
+                      <Icon
+                        icon="mdi:chevron-down"
+                        class="sidebar__submenu-chevron"
+                        :class="{ 'sidebar__submenu-chevron--expanded': isExpanded[child.id] }"
+                      />
+                    </button>
+                    <Transition name="accordion">
+                      <ul v-if="isExpanded[child.id]" class="sidebar__submenu--nested">
+                        <li v-for="grandchild in child.children" :key="grandchild.id">
+                          <router-link
+                            :to="grandchild.path || ''"
+                            class="sidebar__submenu-link--nested"
+                            @click="handleLinkClick(grandchild.path || '')"
+                          >
+                            <span class="sidebar__submenu-step">{{ grandchild.step }}</span>
+                            <span>{{ grandchild.title }}</span>
+                          </router-link>
+                        </li>
+                      </ul>
+                    </Transition>
+                  </template>
+                  <!-- Level 2: Child without children (is a link) -->
+                  <template v-else>
+                    <router-link
+                      :to="child.path || ''"
+                      class="sidebar__submenu-link"
+                      @click="handleLinkClick(child.path || '')"
+                    >
+                      {{ child.label }}
+                    </router-link>
+                  </template>
+                </li>
+              </ul>
+            </Transition>
           </template>
- 
-          <!-- Regular menu item -->
-          <router-link v-else :to="item.link || '/'" class="sidebar__menu-link" @click="handleClose">
-            <div class="sidebar__menu-content">
-              <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
-              <span>{{ item.text }}</span>
-            </div>
-          </router-link>
+
+          <!-- Case 2: Item has no children -> Render a standard router-link -->
+          <template v-else>
+            <router-link :to="item.path || '/'" class="sidebar__menu-link" @click="handleClose">
+              <div class="sidebar__menu-content">
+                <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
+                <span>{{ item.label }}</span>
+              </div>
+            </router-link>
+          </template>
         </li>
       </ul>
     </nav>
   </aside>
 </template>
- 
+
 <style scoped lang="scss">
-  @use "@/assets/styles/components/layout/sidebar.scss";
+@use "@/assets/styles/components/layout/sidebar.scss";
 </style>

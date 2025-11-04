@@ -131,7 +131,7 @@
         justify-content: space-between;
  
         &.expanded {
-            background-color: rgba($color-primary, 0.05);
+            background-color: rgba($color-primary, 0.1);
             color: $color-primary;
         }
     }
@@ -150,7 +150,7 @@
  
     &__menu-chevron {
         font-size: 1.25rem;
-        transition: transform 0.2s ease;
+        transition: transform 0.3s ease;
         flex-shrink: 0;
  
         &--expanded {
@@ -159,10 +159,46 @@
     }
  
     &__submenu {
-        background-color: rgba($color-background, 0.5);
+        background-color: rgba($color-background, 0.8);
         list-style: none;
         margin: 0;
         padding: 0.25rem 0;
+    }
+
+    &__submenu-button {
+        align-items: center; // Center chevron vertically
+        background: none;
+        border: none;
+        border-left: 3px solid transparent;
+        color: $color-text-secondary;
+        cursor: pointer;
+        display: flex;
+        font-family: $font-secondary;
+        font-size: $font-size-p4;
+        font-weight: $font-weight-normal;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem 0.75rem 3.5rem;
+        text-align: left;
+        transition: all 0.2s ease;
+        width: 100%;
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        &.expanded {
+            font-weight: $font-weight-semibold;
+            color: $color-primary;
+        }
+    }
+
+    &__submenu-chevron {
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+
+        &--expanded {
+            transform: rotate(180deg);
+        }
     }
  
     &__submenu-link {
@@ -189,6 +225,33 @@
             color: $color-primary;
             font-weight: $font-weight-semibold;
         }
+    }
+
+    &__submenu--nested {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0;
+        background-color: darken($color-background, 2%); // Third level
+    }
+
+    &__submenu-link--nested {
+        border-left: 3px solid transparent;
+        color: $color-text-secondary;
+        display: block;
+        font-family: $font-secondary;
+        font-size: $font-size-p5;
+        padding: 0.6rem 1.25rem 0.6rem 4.5rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    &__submenu-step {
+        font-weight: $font-weight-bold;
+        margin-right: 0.5rem;
     }
 }
  
