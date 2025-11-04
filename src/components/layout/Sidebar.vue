@@ -37,6 +37,8 @@
     label: string;
     path?: string;
     icon?: string;
+    step?: string;
+    title?: string;
     children?: MenuItem[];
   }
  

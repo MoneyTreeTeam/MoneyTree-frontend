@@ -174,10 +174,10 @@
 				} else {
 					// Hash doesn't match section, search subsections
 					for (let i = 0; i < sections.value.length; i++) {
-						const subSectionIndex = sections.value[i].subSections.findIndex((sub) => sub.id === id);
-						if (subSectionIndex !== -1) {
-							// Found matching subsection, navigate to it
-							handleTocNavigation({ sectionIndex: i, subsectionIndex: subSectionIndex });
+						const subSection = sections.value[i].subSections.find((sub) => sub.id === id);
+						if (subSection) {
+							// Found matching subsection, navigate to it using subsection ID
+							handleTocNavigation({ sectionIndex: i, subsectionId: subSection.id });
 							break;
 						}
 					}
