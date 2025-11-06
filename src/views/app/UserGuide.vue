@@ -219,7 +219,11 @@
 				/>
 
 				<div class="user-guide__main-content">
-					<component :is="currentStepComponent" :section="currentStepData" />
+					<component 
+						:is="currentStepComponent" 
+						:section="currentStepData"
+						:user-guide-info="currentStep === 0 ? userGuide : undefined"
+					/>
 				</div>
 
 				<StepNavigation

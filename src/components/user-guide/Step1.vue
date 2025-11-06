@@ -13,6 +13,8 @@
  *
  * @module Step1Component
  */
+import BaseContainer from '@/components/ui/BaseContainer.vue';
+
 // --- INTERFACES ---
 interface SubSection {
   id: string;
@@ -31,15 +33,39 @@ interface Section {
   subSections: SubSection[];
 }
 
+interface UserGuideInfo {
+  version: string;
+  lastUpdated: string;
+  author: string;
+  targetAudience: string;
+}
+
 // --- PROPS ---
 defineProps<{ 
-  section: Section 
+  section: Section;
+  userGuideInfo?: UserGuideInfo;
 }>();
 
 </script>
 
 <template>
   <article :id="section.id" class="step-content">
+    <!-- Intro/Versie Info Blok - alleen voor Step 1 -->
+    <BaseContainer v-if="userGuideInfo" class="step-content__intro-block">
+      <div class="step-content__intro-content">
+        <h3 class="step-content__intro-title">Handleiding Informatie</h3>
+        <div class="step-content__intro-item">
+          <strong>Versie:</strong> {{ userGuideInfo.version }} | <strong>Laatste update:</strong> {{ userGuideInfo.lastUpdated }}
+        </div>
+        <div class="step-content__intro-item">
+          <strong>Auteurs:</strong> {{ userGuideInfo.author }}
+        </div>
+        <div class="step-content__intro-item">
+          <strong>Doelgroep:</strong> {{ userGuideInfo.targetAudience }}
+        </div>
+      </div>
+    </BaseContainer>
+
     <header class="step-content__header">
       <h2 class="step-content__title">{{ section.title }}</h2>
       <p class="step-content__description">{{ section.description }}</p>

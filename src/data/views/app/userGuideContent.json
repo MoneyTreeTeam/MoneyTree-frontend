@@ -4,8 +4,8 @@
     "description": "Welkom bij de MoneyTree handleiding. Hier vind je alle informatie om optimaal gebruik te maken van jouw MoneyTree.",
     "version": "1.0.0",
     "lastUpdated": "6 november 2025",
-    "author": "MoneyTree Team",
-    "targetAudience": "Deze handleiding is bedoeld voor jongvolwassenen, met name studenten en werkenden die hun financiële of persoonlijke doelen visueel willen bijhouden.",
+    "author": "MoneyTreeTeam [ Richie van der Heij, Bram van Dijke, Floris Hollander, Jilvano Kainth ]",
+    "targetAudience": "Deze handleiding is bedoeld voor jongvolwassenen, die hun financiële of persoonlijke doelen visueel willen bijhouden.",
     "sections": [
       {
         "id": "step-1",
@@ -253,9 +253,8 @@
             "content": [
               "Heb je een vraag die niet in deze handleiding staat, of lukt het niet om een probleem op te lossen? Ons support team helpt je graag verder!",
               "Je kunt contact met ons opnemen via onze contactpagina. Daar kun je een bericht sturen met je vraag of probleem. We streven ernaar om binnen 24-48 uur te reageren.",
-              "Voor technische vragen, vermeld dan altijd het versienummer van je MoneyTree en een duidelijke beschrijving van het probleem. Dit helpt ons om je sneller te kunnen helpen.",
-              "Email: MoneyTreeTeamHR@gmail.com",
-              "Website: www.moneytree.nl/contact"
+              "Email: mailto:MoneyTreeTeamHR@gmail.com",
+              "Website: https://moneytreeteam.github.io/MoneyTree-frontend/contact"
             ]
           },
           {
@@ -267,7 +266,7 @@
               "Ben je tevreden met je MoneyTree? We horen graag van je! Deel je ervaring door een review achter te laten op onze website.",
               "Je feedback helpt ons om MoneyTree te verbeteren en andere gebruikers te inspireren. Via de contactpagina kun je kiezen voor 'Review' en je ervaringen met ons delen.",
               "Vertel ons wat je het leukst vindt aan MoneyTree, welke doelen je hebt bereikt, en of je suggesties hebt voor verbeteringen. Elke review wordt door ons team gelezen en gewaardeerd!",
-              "Ga naar: www.moneytree.nl/contact en selecteer 'Review' om je ervaring te delen."
+              "Ga naar: https://moneytreeteam.github.io/MoneyTree-frontend/contact en selecteer 'Review' om je ervaring te delen."
             ]
           }
         ]

@@ -105,8 +105,7 @@ useHead({
 			<div data-animate>
 				<h2 class="home__features-title">Waarom MoneyTree?</h2>
 				<p class="home__features-description">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Odio mollitia asperiores placeat magni minima iste id quidem suscipit nam non.
+					MoneyTree helpt jongvolwassenen om hun financiële of persoonlijke doelen visueel bij te houden. Door elke stap fysiek waar te maken, blijf je gemotiveerd en zie je direct je vooruitgang groeien.
 				</p>
 			</div>
 
@@ -119,8 +118,7 @@ useHead({
 						<div class="home__feature-text">
 							<h3 class="home__feature-title">Visuele progressie</h3>
 							<p class="home__feature-description">
-								Het smart object geeft direct visuele feedback .. wanneer je
-								spaart. Zie je vooruitgang fysiek groeien op je bureau.
+								MoneyTree geeft direct visuele feedback via een groeiende bloem wanneer je spaart. Elke keer dat je een munt invoert of aan je doel werkt, groeit de bloem verder. Zie je vooruitgang fysiek groeien op je bureau.
 							</p>
 						</div>
 					</div>
@@ -149,8 +147,7 @@ useHead({
 						<div class="home__feature-text">
 							<h3 class="home__feature-title">Circuit Playground Express</h3>
 							<p class="home__feature-description">
-								Gebouwd met professionele hardware. De CPX bevat sensoren,
-								NeoPixel LED's en speaker voor een complete interactieve ervaring.
+								Gebouwd met professionele hardware. De CPX bevat knoppen en NeoPixel LED's voor een complete interactieve ervaring.
 							</p>
 						</div>
 					</div>

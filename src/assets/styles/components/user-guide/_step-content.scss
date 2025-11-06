@@ -2,6 +2,41 @@
 @use '@/assets/styles/base/typography' as *;
 
 .step-content {
+  &__intro-block {
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, rgba($color-primary, 0.05) 0%, rgba($color-primary, 0.02) 100%);
+    border-left: 4px solid $color-primary;
+  }
+
+  &__intro-content {
+    padding: 0.5rem 0;
+  }
+
+  &__intro-title {
+    font-family: $font-primary;
+    font-size: $font-size-p1;
+    color: $color-primary;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__intro-item {
+    font-family: $font-secondary;
+    font-size: $font-size-p3;
+    color: $color-text-primary;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: $color-primary;
+      font-weight: 600;
+    }
+  }
+
   &__header {
     margin-bottom: 2rem;
   }
