@@ -216,6 +216,7 @@ $breakpoint-tablet: 768px;        // Tablet and desktop (min-width)
     padding: 1rem; // Applied on small mobile (≤480px)
   }
 }
+```
 
 ---
 
