@@ -18,6 +18,8 @@ MoneyTree is a comprehensive Vue 3 frontend application designed to provide an i
 | **TypeScript**      | ^5.7.2   | Type-safe JavaScript development           |
 | **Vite**            | ^6.3.5   | Lightning-fast build tool and dev server   |
 | **Vue Router**      | ^4.5.0   | Official routing library for Vue           |
+| **VeeValidate**     | ^4.13.2  | Form validation framework for Vue          |
+| **Yup**             | ^1.4.0   | Schema validation and data validation      |
 | **Sass/SCSS**       | ^1.86.0  | Advanced CSS preprocessor                  |
 | **Iconify**         | ^4.3.0   | Universal icon framework                   |
 | **ESLint**          | ^9.37.0  | Code quality and consistency               |
