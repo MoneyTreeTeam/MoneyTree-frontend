@@ -6,7 +6,7 @@ https://moneytreeteam.github.io/MoneyTree-frontend/
 
 ## Project Description
 
-MoneyTree is a comprehensive Vue 3 frontend application designed to provide an interactive user guide experience. The project includes a fully responsive design system, automatic scroll-based animations, dynamic navigation, and a well-structured component library. Built with TypeScript for type safety and Vite for lightning-fast development, this application demonstrates best practices in modern frontend development.
+MoneyTree is a comprehensive Vue 3 frontend application designed to provide an interactive user guide experience. Built with TypeScript for type safety and Vite for lightning-fast development, this application demonstrates best practices in modern frontend development.
 
 ---
 

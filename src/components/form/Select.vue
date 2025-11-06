@@ -33,7 +33,7 @@
  * @module SelectComponent
  */
 
-import { toRef } from "vue";
+import { toRef, watch } from "vue";
 import { useField } from "vee-validate";
 import type { RuleExpression } from "vee-validate";
 
@@ -71,6 +71,19 @@ const { value, errorMessage, handleBlur } = useField(toRef(props, "name"), props
 	label: props.label,
 	initialValue: props.modelValue?.toString() || '',
 });
+
+/**
+ * Watch for external modelValue changes and sync with internal field value
+ * This ensures the select stays in sync when parent component updates modelValue
+ */
+watch(
+	() => props.modelValue,
+	(newValue) => {
+		if (newValue !== undefined && newValue !== null) {
+			value.value = newValue.toString();
+		}
+	}
+);
 
 /**
  * Handles select change event

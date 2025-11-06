@@ -2,10 +2,6 @@
   "userGuide": {
     "title": "Handleiding",
     "description": "Welkom bij de MoneyTree handleiding. Hier vind je alle informatie om optimaal gebruik te maken van jouw MoneyTree.",
-    "version": "1.0.0",
-    "lastUpdated": "6 november 2025",
-    "author": "MoneyTreeTeam [ Richie van der Heij, Bram van Dijke, Floris Hollander, Jilvano Kainth ]",
-    "targetAudience": "Deze handleiding is bedoeld voor jongvolwassenen, die hun financiële of persoonlijke doelen visueel willen bijhouden.",
     "sections": [
       {
         "id": "step-1",
@@ -30,7 +26,7 @@
             "title": "Voor wie is MoneyTree?",
             "label": "Voor wie is MoneyTree?",
             "content": [
-              "MoneyTree is speciaal ontworpen voor jongvolwassenen die hun doelen visueel willen bijhouden. Of je nu student bent die spaart voor een vakantie, een werkende professional die werkt aan persoonlijke mijlpalen, of iemand die gewoon beter wil worden in het behalen van doelstellingen - MoneyTree helpt je om gefocust te blijven.",
+              "MoneyTree is speciaal ontworpen voor jongvolwassenen die hun doelen visueel willen bijhouden. Of je nu student bent die spaart voor een vakantie, een werkende professional die werkt aan persoonlijke mijlpalen, of iemand die gewoon beter wil worden in het behalen van doelstellingen, MoneyTree helpt je om gefocust te blijven.",
               "De combinatie van financiële en tijdgebaseerde doelen maakt MoneyTree uniek geschikt voor drukke mensen die hun prioriteiten helder willen hebben."
             ]
 
@@ -42,7 +38,7 @@
             "label": "Hoe werkt het?",
             "content": [
               "MoneyTree maakt gebruik van een touch sensor die om het gleufje zit met behulp van aluminiumfolie. Hier stop je het geld of de druppeltjes in. Elke keer dat de sensor wordt aangeraakt, zet het programma er een punt bij.",
-              "Telkens wanneer je 50% van je vastgestelde doel behaalt, groeit de bloem een beetje totdat deze volledig is volgroeid. Wanneer de bloem volgroeid is, heb je je doel bereikt - gefeliciteerd! Je kunt nu genieten van je prestatie of meteen een nieuw doel voor jezelf stellen via de knoppen."
+              "Telkens wanneer je 50% van je vastgestelde doel behaalt, groeit de bloem een beetje totdat deze volledig is volgroeid. Wanneer de bloem volgroeid is, heb je je doel bereikt, gefeliciteerd! Je kunt nu genieten van je prestatie of meteen een nieuw doel voor jezelf stellen via de knoppen."
             ]
           },
           {
@@ -204,9 +200,9 @@
             "label": "MoneyTree groeit niet meer",
             "content": [
               "Wanneer de MoneyTree niet meer groeit bij het invoeren van geld of druppeltjes, kan dit aan een aantal dingen liggen:",
-              "1. Het doel is al bereikt - Check of de ledjes rood zijn. Indien dit zo is, reset dan de MoneyTree en stel een nieuw doel in.",
-              "2. De touch sensor is niet goed verbonden - Haal de deksel eraf en controleer of de verbinding goed is. Het kan ook zijn dat het folie moet worden vervangen. Pak wat nieuw aluminiumfolie en wikkel dit om het gleufje. Laat aan één kant (het makkelijkst is de richting het dichtst bij de CPX) een beetje meer over en zorg ervoor dat het krokodillenklemmetje er goed omheen zit.",
-              "3. De knoppen werken niet meer goed - Er kan geen spaardoel worden neergezet. Volg de stappen uit sectie 4.1 om dit probleem op te lossen."
+              "1. Het doel is al bereikt; Check of de ledjes rood zijn. Indien dit zo is, reset dan de MoneyTree en stel een nieuw doel in.",
+              "2. De touch sensor is niet goed verbonden; Haal de deksel eraf en controleer of de verbinding goed is. Het kan ook zijn dat het folie moet worden vervangen. Pak wat nieuw aluminiumfolie en wikkel dit om het gleufje. Laat aan één kant (het makkelijkst is de richting het dichtst bij de CPX) een beetje meer over en zorg ervoor dat het krokodillenklemmetje er goed omheen zit.",
+              "3. De knoppen werken niet meer goed; Er kan geen spaardoel worden neergezet. Volg de stappen uit sectie 4.1 om dit probleem op te lossen."
             ]
           },
           {
@@ -253,8 +249,8 @@
             "content": [
               "Heb je een vraag die niet in deze handleiding staat, of lukt het niet om een probleem op te lossen? Ons support team helpt je graag verder!",
               "Je kunt contact met ons opnemen via onze contactpagina. Daar kun je een bericht sturen met je vraag of probleem. We streven ernaar om binnen 24-48 uur te reageren.",
-              "Email: mailto:MoneyTreeTeamHR@gmail.com",
-              "Website: https://moneytreeteam.github.io/MoneyTree-frontend/contact"
+              "Email: <a href='mailto:MoneyTreeTeamHR@gmail.com'>MoneyTreeTeamHR@gmail.com</a>",
+              "Website: <a href='https://moneytreeteam.github.io/MoneyTree-frontend/contact' target='_blank' rel='noopener noreferrer'>moneytreeteam.github.io/MoneyTree-frontend/contact</a>"
             ]
           },
           {
@@ -266,7 +262,7 @@
               "Ben je tevreden met je MoneyTree? We horen graag van je! Deel je ervaring door een review achter te laten op onze website.",
               "Je feedback helpt ons om MoneyTree te verbeteren en andere gebruikers te inspireren. Via de contactpagina kun je kiezen voor 'Review' en je ervaringen met ons delen.",
               "Vertel ons wat je het leukst vindt aan MoneyTree, welke doelen je hebt bereikt, en of je suggesties hebt voor verbeteringen. Elke review wordt door ons team gelezen en gewaardeerd!",
-              "Ga naar: https://moneytreeteam.github.io/MoneyTree-frontend/contact en selecteer 'Review' om je ervaring te delen."
+              "Ga naar: <a href='https://moneytreeteam.github.io/MoneyTree-frontend/contact' target='_blank' rel='noopener noreferrer'>moneytreeteam.github.io/MoneyTree-frontend/contact</a> en selecteer 'Review' om je ervaring te delen."
             ]
           }
         ]
