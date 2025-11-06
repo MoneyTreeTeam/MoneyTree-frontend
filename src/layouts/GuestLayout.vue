@@ -3,6 +3,10 @@ import { ref } from "vue";
 import Navbar from "@/components/layout/Navbar.vue";
 import Sidebar from "@/components/layout/Sidebar.vue";
 import Footer from "@/components/layout/Footer.vue";
+import { useScrollAnimation } from "@/composables/global/useScrollAnimation";
+
+// Initialize scroll animations globally
+useScrollAnimation();
 
 // Sidebar state management
 const isSidebarOpen = ref(false);

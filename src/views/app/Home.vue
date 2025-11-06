@@ -58,7 +58,7 @@ useHead({
 				/>
 			</div>
 			<div class="home__header-wrapper container">
-				<div class="home__header-content">
+				<div class="home__header-content fade-in-initial">
 					<h1 class="home__title">
 						<span class="home__title-highlight">Groei je&nbsp;spaargeld,</span> zie het
 						groeien
@@ -88,7 +88,7 @@ useHead({
 					</div>
 				</div>
 
-				<div class="home__header-image">
+				<div class="home__header-image fade-in-initial">
 					<img
 						src="/images/moneytree-header-landing-page.png"
 						alt="MoneyTree visual"
@@ -102,14 +102,16 @@ useHead({
 
 		<!-- Features Section -->
 		<section id="features" class="home__features container">
-			<h2 class="home__features-title">Waarom MoneyTree?</h2>
-			<p class="home__features-description">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-				Odio mollitia asperiores placeat magni minima iste id quidem suscipit nam non.
-			</p>
+			<div data-animate>
+				<h2 class="home__features-title">Waarom MoneyTree?</h2>
+				<p class="home__features-description">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Odio mollitia asperiores placeat magni minima iste id quidem suscipit nam non.
+				</p>
+			</div>
 
 			<div class="home__features-list">
-				<BaseContainer>
+				<BaseContainer data-animate>
 					<div class="home__feature-content">
 						<div class="home__feature-icon">
 							<Icon icon="mdi:lightbulb-on-outline" />
@@ -124,7 +126,7 @@ useHead({
 					</div>
 				</BaseContainer>
 
-				<BaseContainer>
+				<BaseContainer data-animate>
 					<div class="home__feature-content">
 						<div class="home__feature-icon">
 							<Icon icon="mdi:hand-coin" />
@@ -139,7 +141,7 @@ useHead({
 					</div>
 				</BaseContainer>
 
-				<BaseContainer>
+				<BaseContainer data-animate>
 					<div class="home__feature-content">
 						<div class="home__feature-icon">
 							<Icon icon="mdi:chip" />
@@ -154,7 +156,7 @@ useHead({
 					</div>
 				</BaseContainer>
 
-				<BaseContainer>
+				<BaseContainer data-animate>
 					<div class="home__feature-content">
 						<div class="home__feature-icon">
 							<Icon icon="mdi:trophy" />
@@ -171,13 +173,13 @@ useHead({
 			</div>
 		</section>
 
-		<div class="home__divider-wrapper container">
+		<div class="home__divider-wrapper container" data-animate>
 			<DividerLine />
 		</div>
 		
 		<!-- CTA Section -->
 		<section id="cta" class="home__cta-section">
-			<div class="home__cta-section-content container">
+			<div class="home__cta-section-content container" data-animate>
 				<h2 class="home__cta-title">Klaar om te groeien?</h2>
 				<p class="home__cta-description">
 					Leer hoe MoneyTree jou kan helpen met onze uitgebreide handleiding

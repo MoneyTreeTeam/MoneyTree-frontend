@@ -17,7 +17,7 @@
     z-index: 1001;
  
     // Mobile responsive only
-    @media (max-width: 767px) {
+    @include mobile {
         max-width: 300px;
     }
  
@@ -81,6 +81,16 @@
  
     &__nav {
         padding: 1rem 0;
+    }
+
+    &__group-title {
+        color: $color-text-secondary;
+        font-family: $font-primary;
+        font-size: $font-size-p5;
+        font-weight: $font-weight-bold;
+        letter-spacing: 0.8px;
+        padding: 0.5rem 1.25rem;
+        text-transform: uppercase;
     }
  
     &__menu {
@@ -231,7 +241,7 @@
         list-style: none;
         margin: 0;
         padding: 0.25rem 0;
-        background-color: darken($color-background, 2%); // Third level
+        background-color: rgba($color-background, 10); // Third level
     }
 
     &__submenu-link--nested {
@@ -253,6 +263,10 @@
         font-weight: $font-weight-bold;
         margin-right: 0.5rem;
     }
+
+    &__divider {
+        margin: 1rem 0;
+    }
 }
  
 // Backdrop overlay (separate from .sidebar)
@@ -268,7 +282,7 @@
 }
  
 // Responsive adjustments
-@media (max-width: 480px) {
+@include mobile-small {
     .sidebar {
         max-width: 350px;
         width: 80%;

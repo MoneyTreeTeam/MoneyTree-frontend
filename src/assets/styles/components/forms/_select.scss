@@ -3,10 +3,10 @@
 @use "@/assets/styles/base/variables" as *;
 @use "@/assets/styles/base/mixins" as *;
 
-.input {
+.select {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 0.25rem;
+	margin-bottom: 0;
 	width: 100%;
 
 	&__label {
@@ -26,10 +26,17 @@
 	}
 
 	&__field {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+		background-position: right 0.5rem center;
+		background-repeat: no-repeat;
+		background-size: 1.5em 1.5em;
+		padding-right: 2.5rem;
 		background-color: $color-input-bg;
 		border: $border-width-thin solid $color-input-border;
 		border-radius: 6px;
 		color: $color-text-primary;
+		cursor: pointer;
 		font-family: $font-secondary;
 		font-size: $font-size-p4;
 		font-weight: $font-weight-normal;
@@ -38,32 +45,25 @@
 		transition: border-color 0.2s ease;
 		width: 100%;
 
-		&::placeholder {
+		// Placeholder styling (hidden option)
+		option[value=""][disabled] {
 			color: $color-input-placeholder;
-			transition: color 0.2s ease;
 		}
 
-		&:hover:not(:focus) {
+		&:hover:not(:focus):not(:disabled) {
 			border-color: $color-input-border-hover;
-
-			&::placeholder {
-				color: $color-input-placeholder-hover;
-			}
 		}
 
 		&:focus {
 			border-color: $color-input-border-focus;
 			outline: none;
-
-			&::placeholder {
-				color: $color-input-placeholder-hover;
-			}
 		}
 
 		&:disabled {
 			background-color: $color-input-bg-disabled;
 			color: $color-text-disabled;
 			cursor: not-allowed;
+			opacity: 0.6;
 		}
 
 		&--error {
@@ -76,27 +76,6 @@
 			&:focus {
 				border-color: $color-error;
 			}
-		}
-
-		// Autofill styling override
-		&:-webkit-autofill,
-		&:-webkit-autofill:hover,
-		&:-webkit-autofill:focus,
-		&:-webkit-autofill:active {
-			-webkit-box-shadow: 0 0 0 30px $color-input-bg inset !important;
-			-webkit-text-fill-color: $color-text-primary !important;
-			transition: background-color 5000s ease-in-out 0s;
-		}
-
-		&:autofill {
-			background-color: $color-input-bg !important;
-			color: $color-text-primary !important;
-		}
-
-		&--textarea {
-			max-height: 180px;
-			min-height: 120px;
-			resize: vertical;
 		}
 	}
 

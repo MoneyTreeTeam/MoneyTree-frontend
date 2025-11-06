@@ -34,11 +34,6 @@
 		height: 100%;
 		overflow: hidden;
 		z-index: 0;
-		display: none; // Hidden by default
-
-		@media (min-width: 768px) {
-			display: block; // Visible only on desktop
-		}
 	}
 
 	&-bg-image {
@@ -48,8 +43,8 @@
 		object-position: center;
 		filter: blur(2px);
 		opacity: 0.1;
-        transform: translateZ(0); // Enable hardware acceleration for iOS Safari
-        backface-visibility: hidden; // Prevent flickering during animations
+		transform: translateZ(0); // Enable hardware acceleration for iOS Safari
+		backface-visibility: hidden; // Prevent flickering during animations
 	}
 
 	&-wrapper {
@@ -61,7 +56,7 @@
 		width: 100%;
 		gap: 2rem;
 
-		@media (min-width: 768px) {
+		@include tablet {
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
@@ -76,7 +71,7 @@
 		text-align: left;
 		width: 100%;
 
-		@media (min-width: 768px) {
+		@include tablet {
 			align-items: flex-start;
 			max-width: 550px;
 			flex: 0 0 auto;
@@ -86,7 +81,7 @@
 	&-image {
 		display: none;
 
-		@media (min-width: 768px) {
+		@include tablet {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -101,7 +96,7 @@
 		width: 100%;
 		margin-top: 3rem;
 
-		@media (min-width: 768px) {
+		@include tablet {
 			justify-content: flex-start;
 		}
 	}
@@ -121,7 +116,7 @@
 	line-height: 1.2;
 	margin-bottom: 1.25rem;
 
-	@media (min-width: 768px) {
+	@include tablet {
 		font-size: 3.75rem; // Desktop font size
 	}
 
@@ -266,7 +261,7 @@
 }
 
 // Responsive adjustments for smaller screens
-@media (max-width: 480px) {
+@include mobile-small {
 	.home__subtitle {
 		font-size: $font-size-p3;
 	}

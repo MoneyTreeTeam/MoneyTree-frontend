@@ -20,6 +20,36 @@
   // CLICK ANIMATION EFFECT
   // ============================================================================
 
+  &::before {
+    background-color: rgba($white, 0.1);
+    border-radius: inherit;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &:active:not(:disabled)::before {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.05s ease, transform 0.05s ease;
+  }
+
+  // Text content positioning
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &::after {
     background-color: rgba($white, 0.15);
     border-radius: inherit;

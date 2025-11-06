@@ -1,12 +1,12 @@
 https://moneytreeteam.github.io/MoneyTree-frontend/
 
-# MoneyTree Frontend Template
+# MoneyTree Frontend
 
-> A modern, production-ready Vue 3 frontend template built with TypeScript, focusing on mobile-first responsive design and code quality.
+> A modern, production-ready Vue 3 application built with TypeScript, featuring mobile-first responsive design, scroll animations, and comprehensive documentation.
 
 ## Project Description
 
-This is a comprehensive Vue 3 frontend template designed for building scalable, maintainable web applications. The template includes pre-configured components, routing, styling architecture, and development tools to kickstart your project with best practices from day one.
+MoneyTree is a comprehensive Vue 3 frontend application designed to provide an interactive user guide experience. The project includes a fully responsive design system, automatic scroll-based animations, dynamic navigation, and a well-structured component library. Built with TypeScript for type safety and Vite for lightning-fast development, this application demonstrates best practices in modern frontend development.
 
 ---
 
@@ -22,28 +22,45 @@ This is a comprehensive Vue 3 frontend template designed for building scalable, 
 | **Iconify**         | ^4.3.0   | Universal icon framework                   |
 | **ESLint**          | ^9.37.0  | Code quality and consistency               |
 | **Prettier**        | ^3.6.2   | Opinionated code formatter                 |
-| **VueUse**          | ^2.0.0   | Dynamic meta tags & SEO Management         |
+| **VueUse/Head**     | ^2.0.0   | Dynamic meta tags & SEO management         |
+| **Lint-Staged**     | ^16.2.6  | Pre-commit code formatting                 |
 
 ---
 
 ## Design Philosophy
 
-### Mobile-Only Design
-This template is specifically designed for **mobile devices only** (smartphones):
-- Optimized for viewports up to **767px** (max mobile width)
-- No tablet or desktop breakpoints needed
-- Focused, streamlined mobile user experience
-- Performance optimized for mobile networks
+### Mobile-First Responsive Design
+This template follows a **mobile-first responsive approach**:
+- Starts with mobile optimization (320px base)
+- Progressively enhances for larger viewports
+- Fully responsive across all device sizes
+- Performance optimized with mobile as priority
+- Smooth transitions between breakpoints
 
 ### SCSS Architecture
 ```
 assets/styles/
-├── base/          # Variables, colors, typography, mixins
-├── components/    # Component-specific styles
-├── layouts/       # Layout wrappers and layout-specific helpers
-├── forms/         # Form elements and validation styles
-├── utils/         # Utility classes and helper functions
-└── views/         # Page-specific styles
+├── base/               # Foundation styles
+│   ├── _colors.scss   # Color palette and theme colors
+│   ├── _global.scss   # Global HTML/body styles
+│   ├── _mixins.scss   # Reusable SCSS mixins and functions
+│   ├── _reset.scss    # CSS reset and normalization
+│   ├── _shadows.scss  # Shadow tokens and elevation
+│   ├── _typography.scss # Font families, sizes, weights
+│   └── _variables.scss  # Spacing, breakpoints, z-index
+├── components/         # Component-specific styles
+│   ├── buttons/       # Button components
+│   ├── forms/         # Form elements (input, checkbox, etc.)
+│   ├── layout/        # Header, footer, navbar, sidebar
+│   ├── table/         # Data table components
+│   ├── ui/            # UI utilities (modals, breadcrumbs, etc.)
+│   └── user-guide/    # User guide specific styles
+├── layouts/           # Layout wrappers and page structures
+├── utils/             # Utility classes and animations
+│   ├── _animations.scss    # Scroll animations and transitions
+│   └── _notifications.scss # Toast and notification styles
+└── views/             # Page-specific styles
+    └── app/          # Application page styles
 ```
 
 ---
@@ -52,23 +69,43 @@ assets/styles/
 
 ```
 src/
-├── assets/              # Static assets and styles
-├── components/          # Reusable Vue components
-│   ├── form/           # Form components (Input, Dropdown, etc.)
-│   ├── general/        # Buttons, breadcrumbs
-│   ├── layout/         # Header, footer, navbar
-│   ├── table/          # Data table components
-│   └── ui/             # UI utilities (scrollbar, etc.)
-├── composables/         # Vue composition functions
-├── layouts/             # Layout wrappers
-├── plugins/             # Vue plugins
-├── router/              # Vue Router configuration
-├── validations/         # Form validation logic
-└── views/               # Page components
-    ├── app/            # Main application views
-    ├── errors/         # Error pages (404, 500)
-    ├── help/           # Help pages (FAQ, Contact)
-    └── policies/       # Legal pages (Privacy, Terms)
+├── assets/                    # Static assets and styles
+│   └── styles/               # SCSS architecture
+│       ├── main.scss         # Main SCSS entry point
+│       ├── base/             # Foundation styles (colors, typography, etc.)
+│       ├── components/       # Component-specific styles
+│       ├── layouts/          # Layout-specific styles
+│       ├── utils/            # Utilities and animations
+│       └── views/            # Page-specific styles
+├── components/                # Reusable Vue components
+│   ├── buttons/              # Button components (BaseButton)
+│   ├── form/                 # Form components (Input, Checkbox, etc.)
+│   ├── general/              # General purpose components
+│   ├── layout/               # Layout components (Header, Footer, Navbar, Sidebar)
+│   ├── table/                # Data table components
+│   ├── ui/                   # UI utilities (Modal, Container, Breadcrumbs, etc.)
+│   └── user-guide/           # User guide step components
+├── composables/               # Vue composition functions
+│   ├── components/           # Component-specific composables
+│   │   └── ui/              # UI component logic
+│   └── global/              # Global reusable composables
+├── data/                      # Static JSON data files
+│   ├── components/           # Component-related data
+│   │   └── layout/          # Layout component data
+│   └── views/               # View-related data
+│       └── app/             # Application view data
+├── layouts/                   # Layout wrappers (GuestLayout)
+├── plugins/                   # Vue plugins and extensions
+├── router/                    # Vue Router configuration
+│   └── index.ts             # Route definitions
+├── templates/                 # Documentation templates (JSDoc)
+├── validations/               # Form validation logic
+│   └── validations.ts       # Validation schemas
+└── views/                     # Page components
+    ├── app/                  # Main application views (Home, UserGuide)
+    ├── errors/               # Error pages (404, 500)
+    ├── help/                 # Help pages (Contact)
+    └── policies/             # Legal pages (Privacy, Terms, Cookies)
 ```
 
 ---
@@ -88,13 +125,14 @@ npm install
 
 ## Available Commands
 
-| Command              | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| `npm run dev`        | Start development server on http://localhost:3000|
-| `npm run build`      | Build for production with type checking          |
-| `npm run preview`    | Preview production build locally                 |
-| `npm run lint`       | Run ESLint and auto-fix issues                   |
-| `npm run format`     | Format code with Prettier                        |
+| Command                 | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| `npm run dev`           | Start development server on http://localhost:3000|
+| `npm run build`         | Build for production with type checking          |
+| `npm run preview`       | Preview production build locally                 |
+| `npm run lint`          | Run ESLint and auto-fix issues                   |
+| `npm run format`        | Format all staged files with Prettier            |
+| `npm run format:item`   | Format specific file(s) with Prettier            |
 
 ### Running the Development Server
 
@@ -115,40 +153,67 @@ npm run build
 npm run preview
 ```
 
+### Code Formatting
+
+```bash
+# Format all staged files (runs automatically with lint-staged)
+npm run format
+
+# Format specific file or files
+npm run format:item -- src/views/app/Home.vue
+npm run format:item -- "src/components/**/*.vue"
+```
+
 ---
 
 ## Styling Methodology
 
 ### Global SCSS Variables
-All SCSS files automatically import base variables:
-- `variables.scss` - Spacing, sizes, breakpoints
-- `colors.scss` - Color palette and themes
-- `typography.scss` - Font families, sizes, weights
-- `mixins.scss` - Reusable CSS functions
-- `shadows.scss` - Shadow tokens and elevation styles
+All SCSS files use a centralized base import system:
 
-### Mobile Viewport
+**Available Base Imports:**
+- `_colors.scss` - Color palette, primary/secondary colors, text colors
+- `_typography.scss` - Font families, sizes (h1-h6, p1-p5), weights
+- `_variables.scss` - Responsive breakpoints, font weights, and border widths
+- `_mixins.scss` - Reusable functions (responsive containers, gradients, etc.)
+- `_shadows.scss` - Shadow tokens and elevation system
+- `_global.scss` - Global HTML/body styles and utilities
+- `_reset.scss` - CSS normalization and reset
+
+### Responsive Breakpoints
 ```scss
-// Mobile Only (no breakpoints needed)
-$mobile-max: 767px;  // Maximum mobile width
+// Breakpoint variables defined in _variables.scss
+$breakpoint-mobile-small: 480px;  // Small mobile devices (max-width)
+$breakpoint-mobile: 767px;        // Mobile devices (max-width)
+$breakpoint-tablet: 768px;        // Tablet and desktop (min-width)
 
-// All styles are mobile-first by default
-// No media queries needed for tablet/desktop
-```
-
-### Usage Example
-```vue
-<style lang="scss" scoped>
-.component {
-  // Default mobile styles (320px - 767px)
-  padding: 1rem;
-  font-size: 14px;
-  
-  // No tablet/desktop styles needed
-  // Application is mobile-only
+// Responsive mixins available in _mixins.scss
+@include mobile-small {
+  // Styles for max-width: 480px (small mobile)
 }
-</style>
+
+@include mobile {
+  // Styles for max-width: 767px (mobile)
+}
+
+@include tablet {
+  // Styles for min-width: 768px (tablet and desktop)
+}
 ```
+
+**Usage Example:**
+```scss
+.my-component {
+  padding: 2rem;
+  
+  @include mobile {
+    padding: 1.5rem; // Applied on mobile (≤767px)
+  }
+  
+  @include mobile-small {
+    padding: 1rem; // Applied on small mobile (≤480px)
+  }
+}
 
 ---
 
@@ -173,22 +238,71 @@ $mobile-max: 767px;  // Maximum mobile width
 - Multi-word component names not required
 
 ### Prettier Configuration
-- **Tabs**: Enabled (no spaces)
+- **Tab Width**: 4 spaces
+- **Use Tabs**: true
 - **Semicolons**: Required
 - **Quotes**: Double quotes
 - **Trailing Commas**: All
-- **CSS Order**: Alphabetical sorting
+- **Bracket Spacing**: true
+- **Vue Indent Script and Style**: true
+- **CSS Order**: Alphabetical (via prettier-plugin-css-order)
 
 ---
 
 ## Best Practices
 
-1. **Component Naming**: Use PascalCase for components
-2. **Props & Emits**: Always define TypeScript types
-3. **Composables**: Prefix with `use` (e.g., `useAuth`)
-4. **SCSS**: Use scoped styles in components
-5. **Imports**: Use `@/` alias for src directory
-6. **Validation**: Centralize validation logic in `/validations`
+### Component Development
+1. **Naming Conventions**: 
+   - Components: PascalCase (e.g., `UserProfile.vue`)
+   - Composables: camelCase with `use` prefix (e.g., `useAuth.ts`)
+   - SCSS files: kebab-case with underscore prefix (e.g., `_user-profile.scss`)
+
+2. **TypeScript Types**: 
+   - Always define interfaces for props and emits
+   - Use proper type annotations for all functions
+   - Avoid `any` type unless absolutely necessary
+
+3. **SCSS Structure**:
+   - Use scoped styles in single-file components
+   - Import base SCSS variables via `@use` (not `@import`)
+   - Follow BEM naming methodology for classes
+   - Each component must have a dedicated SCSS file in matching directory
+
+4. **Code Organization**:
+   - Use `@/` alias for src directory imports
+   - Group related functionality in composables
+   - Keep validation logic centralized in `/validations`
+   - Store static data in `/data` directory as JSON
+
+5. **Accessibility**:
+   - Include proper ARIA labels and roles
+   - Ensure keyboard navigation works
+   - Maintain sufficient color contrast
+   - Support screen readers with semantic HTML
+
+6. **Performance**:
+   - Lazy-load routes when appropriate
+   - Use computed properties over watchers
+   - Implement scroll animations with Intersection Observer
+   - Optimize images and assets
+
+---
+
+## Key Features
+
+### Scroll-Based Animations
+The template includes a built-in scroll animation system:
+- **Automatic fade-in animations** when elements enter viewport
+- **Intersection Observer API** for performance
+- **Respects user preferences** (prefers-reduced-motion)
+- **Staggered animations** for sequential elements
+- **Easy to use**: Just add `data-animate` attribute to any element
+
+### SEO & Meta Management
+- **Dynamic meta tags** with VueUse Head
+- **Configurable page titles** and descriptions
+- **Semantic HTML** structure throughout
+- **Sitemap and robots.txt** included
 
 ---
 

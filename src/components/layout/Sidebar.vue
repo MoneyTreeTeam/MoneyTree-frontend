@@ -30,6 +30,7 @@
   import { Icon } from "@iconify/vue";
   import sidebarContent from "@/data/components/layout/sidebarContent.json";
   import userGuideContent from "@/data/views/app/userGuideContent.json";
+  import DividerLine from "@/components/ui/DividerLine.vue";
  
   // Define menu items structure
   interface MenuItem {
@@ -80,6 +81,25 @@
       }));
     }
     return sidebar;
+  });
+
+  const groupedMenu = computed(() => {
+    const groups: { [key: string]: MenuItem[] } = {
+      Links: [],
+      Info: [],
+    };
+
+    menuTree.value.forEach(item => {
+      if (item.id === 'home' || item.id === 'contact') {
+        groups.Links.push(item);
+      } else if (item.id === 'user-guide') {
+        groups.Info.push(item);
+      }
+    });
+
+    return Object.entries(groups)
+      .map(([title, items]) => ({ title, items }))
+      .filter(group => group.items.length > 0);
   });
  
   // Handle submenu toggles
@@ -151,86 +171,90 @@
     </div>
 
     <nav class="sidebar__nav">
-      <ul class="sidebar__menu">
-        <li v-for="item in menuTree" :key="item.id" class="sidebar__menu-item">
-          <!-- Case 1: Item has children -> Render a button to toggle submenu -->
-          <template v-if="item.children && item.children.length">
-            <button
-              class="sidebar__menu-button"
-              :class="{ expanded: isExpanded[item.id] }"
-              :aria-expanded="isExpanded[item.id]"
-              :aria-label="`${item.label} menu ${isExpanded[item.id] ? 'sluiten' : 'openen'}`"
-              @click="toggleSubmenu(item.id)"
-            >
-              <div class="sidebar__menu-content">
-                <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
-                <span>{{ item.label }}</span>
-              </div>
-              <Icon
-                icon="mdi:chevron-down"
-                class="sidebar__menu-chevron"
-                :class="{ 'sidebar__menu-chevron--expanded': isExpanded[item.id] }"
-              />
-            </button>
-            <Transition name="accordion">
-              <ul v-if="isExpanded[item.id]" class="sidebar__submenu">
-                <li v-for="child in item.children" :key="child.id">
-                  <!-- Level 2: Child with its own children -->
-                  <template v-if="child.children && child.children.length">
-                    <button
-                      class="sidebar__submenu-button"
-                      :class="{ expanded: isExpanded[child.id] }"
-                      :aria-expanded="isExpanded[child.id]"
-                      @click="toggleSubmenu(child.id)"
-                    >
-                      <span>{{ child.label }}</span>
-                      <Icon
-                        icon="mdi:chevron-down"
-                        class="sidebar__submenu-chevron"
-                        :class="{ 'sidebar__submenu-chevron--expanded': isExpanded[child.id] }"
-                      />
-                    </button>
-                    <Transition name="accordion">
-                      <ul v-if="isExpanded[child.id]" class="sidebar__submenu--nested">
-                        <li v-for="grandchild in child.children" :key="grandchild.id">
-                          <router-link
-                            :to="grandchild.path || ''"
-                            class="sidebar__submenu-link--nested"
-                            @click="handleLinkClick(grandchild.path || '')"
-                          >
-                            <span class="sidebar__submenu-step">{{ grandchild.step }}</span>
-                            <span>{{ grandchild.title }}</span>
-                          </router-link>
-                        </li>
-                      </ul>
-                    </Transition>
-                  </template>
-                  <!-- Level 2: Child without children (is a link) -->
-                  <template v-else>
-                    <router-link
-                      :to="child.path || ''"
-                      class="sidebar__submenu-link"
-                      @click="handleLinkClick(child.path || '')"
-                    >
-                      {{ child.label }}
-                    </router-link>
-                  </template>
-                </li>
-              </ul>
-            </Transition>
-          </template>
+      <template v-for="(group, index) in groupedMenu" :key="group.title">
+        <h3 class="sidebar__group-title">{{ group.title }}</h3>
+        <ul class="sidebar__menu">
+          <li v-for="item in group.items" :key="item.id" class="sidebar__menu-item">
+            <!-- Case 1: Item has children -> Render a button to toggle submenu -->
+            <template v-if="item.children && item.children.length">
+              <button
+                class="sidebar__menu-button"
+                :class="{ expanded: isExpanded[item.id] }"
+                :aria-expanded="isExpanded[item.id]"
+                :aria-label="`${item.label} menu ${isExpanded[item.id] ? 'sluiten' : 'openen'}`"
+                @click="toggleSubmenu(item.id)"
+              >
+                <div class="sidebar__menu-content">
+                  <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
+                  <span>{{ item.label }}</span>
+                </div>
+                <Icon
+                  icon="mdi:chevron-down"
+                  class="sidebar__menu-chevron"
+                  :class="{ 'sidebar__menu-chevron--expanded': isExpanded[item.id] }"
+                />
+              </button>
+              <Transition name="accordion">
+                <ul v-if="isExpanded[item.id]" class="sidebar__submenu">
+                  <li v-for="child in item.children" :key="child.id">
+                    <!-- Level 2: Child with its own children -->
+                    <template v-if="child.children && child.children.length">
+                      <button
+                        class="sidebar__submenu-button"
+                        :class="{ expanded: isExpanded[child.id] }"
+                        :aria-expanded="isExpanded[child.id]"
+                        @click="toggleSubmenu(child.id)"
+                      >
+                        <span>{{ child.label }}</span>
+                        <Icon
+                          icon="mdi:chevron-down"
+                          class="sidebar__submenu-chevron"
+                          :class="{ 'sidebar__submenu-chevron--expanded': isExpanded[child.id] }"
+                        />
+                      </button>
+                      <Transition name="accordion">
+                        <ul v-if="isExpanded[child.id]" class="sidebar__submenu--nested">
+                          <li v-for="grandchild in child.children" :key="grandchild.id">
+                            <router-link
+                              :to="grandchild.path || ''"
+                              class="sidebar__submenu-link--nested"
+                              @click="handleLinkClick(grandchild.path || '')"
+                            >
+                              <span class="sidebar__submenu-step">{{ grandchild.step }}</span>
+                              <span>{{ grandchild.title }}</span>
+                            </router-link>
+                          </li>
+                        </ul>
+                      </Transition>
+                    </template>
+                    <!-- Level 2: Child without children (is a link) -->
+                    <template v-else>
+                      <router-link
+                        :to="child.path || ''"
+                        class="sidebar__submenu-link"
+                        @click="handleLinkClick(child.path || '')"
+                      >
+                        {{ child.label }}
+                      </router-link>
+                    </template>
+                  </li>
+                </ul>
+              </Transition>
+            </template>
 
-          <!-- Case 2: Item has no children -> Render a standard router-link -->
-          <template v-else>
-            <router-link :to="item.path || '/'" class="sidebar__menu-link" @click="handleClose">
-              <div class="sidebar__menu-content">
-                <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
-                <span>{{ item.label }}</span>
-              </div>
-            </router-link>
-          </template>
-        </li>
-      </ul>
+            <!-- Case 2: Item has no children -> Render a standard router-link -->
+            <template v-else>
+              <router-link :to="item.path || '/'" class="sidebar__menu-link" @click="handleClose">
+                <div class="sidebar__menu-content">
+                  <Icon v-if="item.icon" :icon="item.icon" class="sidebar__menu-icon" />
+                  <span>{{ item.label }}</span>
+                </div>
+              </router-link>
+            </template>
+          </li>
+        </ul>
+        <DividerLine v-if="index < groupedMenu.length - 1" class="sidebar__divider" />
+      </template>
     </nav>
   </aside>
 </template>

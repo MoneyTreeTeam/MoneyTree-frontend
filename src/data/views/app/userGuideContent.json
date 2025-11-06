@@ -1,32 +1,69 @@
 {
   "userGuide": {
     "title": "Handleiding",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": "Welkom bij de MoneyTree handleiding. Hier vind je alle informatie om optimaal gebruik te maken van jouw MoneyTree.",
+    "version": "1.0.0",
+    "lastUpdated": "6 november 2025",
+    "author": "MoneyTree Team",
+    "targetAudience": "Deze handleiding is bedoeld voor jongvolwassenen, met name studenten en werkenden die hun financiële of persoonlijke doelen visueel willen bijhouden.",
     "sections": [
       {
         "id": "step-1",
         "title": "Stap 1: Aan de slag",
         "label": "Stap 1: Aan de slag",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Leer hoe MoneyTree werkt en hoe je jouw spaardoel kunt instellen met munten of druppeltjes.",
         "component": "Step1",
         "subSections": [
           {
             "id": "step-1-1",
             "step": "1.1",
-            "title": "Subitem",
-            "label": "Subitem 1.1",
+            "title": "Wat is MoneyTree?",
+            "label": "Wat is MoneyTree?",
             "content": [
-              "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              "MoneyTree is bedoeld om jouw spaarreis visueel te maken. MoneyTree is gericht op jongvolwassenen en vooral studenten en mensen met een baan kunnen MoneyTree voor meerdere doeleinden gebruiken. Het is aan jou als gebruiker om deze doelen voor jezelf te stellen en weer te geven.",
+              "Voor financiële doelen stop je gewoon munten in het gleufje. Voor persoonlijke doelen zoals belangrijke schoolopdrachten, leren voor toetsen of een meeting kan je ook kleine voorwerpen of zelfgemaakte tokens gebruiken die je elke keer invoert wanneer je aan je doel werkt."
             ]
           },
           {
             "id": "step-1-2",
             "step": "1.2",
-            "title": "Subitem",
-            "label": "Subitem 1.2",
+            "title": "Voor wie is MoneyTree?",
+            "label": "Voor wie is MoneyTree?",
             "content": [
-              "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              "MoneyTree is speciaal ontworpen voor jongvolwassenen die hun doelen visueel willen bijhouden. Of je nu student bent die spaart voor een vakantie, een werkende professional die werkt aan persoonlijke mijlpalen, of iemand die gewoon beter wil worden in het behalen van doelstellingen - MoneyTree helpt je om gefocust te blijven.",
+              "De combinatie van financiële en tijdgebaseerde doelen maakt MoneyTree uniek geschikt voor drukke mensen die hun prioriteiten helder willen hebben."
+            ]
+
+          },
+          {
+            "id": "step-1-3",
+            "step": "1.3",
+            "title": "Hoe werkt het?",
+            "label": "Hoe werkt het?",
+            "content": [
+              "MoneyTree maakt gebruik van een touch sensor die om het gleufje zit met behulp van aluminiumfolie. Hier stop je het geld of de druppeltjes in. Elke keer dat de sensor wordt aangeraakt, zet het programma er een punt bij.",
+              "Telkens wanneer je 50% van je vastgestelde doel behaalt, groeit de bloem een beetje totdat deze volledig is volgroeid. Wanneer de bloem volgroeid is, heb je je doel bereikt - gefeliciteerd! Je kunt nu genieten van je prestatie of meteen een nieuw doel voor jezelf stellen via de knoppen."
+            ]
+          },
+          {
+            "id": "step-1-4",
+            "step": "1.4",
+            "title": "Doel bereikt herkennen",
+            "label": "Doel bereikt herkennen",
+            "content": [
+              "Wanneer je doel is bereikt, kun je dit op meerdere manieren zien. De bloem is dan volledig volgroeid en geeft een visuele bevestiging van je prestatie.",
+              "Je kunt ook de bovenkant openen en kijken naar de LED-lampjes. Deze zouden allemaal rood moeten zijn wanneer je 100% van je doel hebt bereikt. Dit geeft je een duidelijke bevestiging dat het tijd is om te vieren of een nieuw doel in te stellen!"
+            ]
+          },
+          {
+            "id": "step-1-5",
+            "step": "1.5",
+            "title": "Belangrijke notities",
+            "label": "Belangrijke notities",
+            "content": [
+              "Voor het gebruik van de druppeltjes wordt aangeraden dikker karton te gebruiken. De opening van het gleufje is namelijk ongeveer 5mm dik en dun karton kan soms de sensor niet raken.",
+              "Wanneer je gebruik maakt van biljetten zoals 5 euro biljetten en deze in het gleufje stopt, registreert dit altijd als 1 punt. Dit is op te lossen door het biljet of je vinger meerdere keren langs het folie te laten gaan.",
+              "Bewaar je MoneyTree op een droge plek en vermijd direct zonlicht om de beste werking te garanderen."
             ]
           }
         ]
@@ -35,80 +72,202 @@
         "id": "step-2",
         "title": "Stap 2: Eerste gebruik",
         "label": "Stap 2: Eerste gebruik",
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        "description": "Ontdek hoe je jouw MoneyTree voor het eerst instelt en gebruikt.",
         "component": "Step2",
         "subSections": [
           {
             "id": "step-2-1",
             "step": "2.1",
-            "title": "Subitem",
-            "label": "Subitem 2.1",
+            "title": "Uitpakken en controleren",
+            "label": "Uitpakken en controleren",
             "content": [
-              "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+              "Pak je MoneyTree voorzichtig uit en controleer of alle onderdelen aanwezig zijn: de MoneyTree zelf, de batterijhouder met ruimte voor 3 AA-batterijen, en eventuele extra accessoires.",
+              "Controleer of de aluminiumfolie goed om het gleufje zit en of alle verbindingen stevig zijn. Dit is belangrijk voor een goede werking van de touch sensor."
             ]
           },
           {
             "id": "step-2-2",
             "step": "2.2",
-            "title": "Subitem",
-            "label": "Subitem 2.2",
+            "title": "Batterijen plaatsen",
+            "label": "Batterijen plaatsen",
             "content": [
-              "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+              "Plaats 3 AA-batterijen in de batterijhouder. Let op de polariteit (+ en -) zoals aangegeven in de batterijhouder.",
+              "Plaats de batterijhouder terug in de MoneyTree en sluit de bovenkant. De LED-lampjes zouden nu kort moeten oplichten om aan te geven dat de MoneyTree stroom heeft."
+            ]
+          },
+          {
+            "id": "step-2-3",
+            "step": "2.3",
+            "title": "MoneyTree instellen",
+            "label": "MoneyTree instellen",
+            "content": [
+              "Bij het eerste gebruik van je MoneyTree is het belangrijk om je spaardoel goed in te stellen. Dit doe je met behulp van de knoppen aan de zijkant van je MoneyTree.",
+              "Bepaal vooraf wat je doel is: spaar je voor een bepaald geldbedrag, of gebruik je de druppeltjes voor persoonlijke mijlpalen zoals studietaken of meetings? Stel je doel realistisch in om gemotiveerd te blijven."
+            ]
+          },
+          {
+            "id": "step-2-4",
+            "step": "2.4",
+            "title": "Je eerste munten of druppels",
+            "label": "Je eerste munten of druppels",
+            "content": [
+              "Wanneer je je doel hebt ingesteld, kun je beginnen met het invoeren van munten of druppeltjes via het gleufje. Zorg ervoor dat deze goed contact maken met de aluminiumfolie rond het gleufje.",
+              "Bij elke succesvolle registratie zie je de bloem groeien. Dit geeft je directe feedback over je voortgang richting je doel. Je hoort mogelijk ook een bevestigingstoon (afhankelijk van je instellingen)."
+            ]
+          },
+          {
+            "id": "step-2-5",
+            "step": "2.5",
+            "title": "Voortgang controleren",
+            "label": "Voortgang controleren",
+            "content": [
+              "Je kunt je voortgang op elk moment controleren door naar de bloem te kijken. Hoe meer de bloem is gegroeid, hoe dichter je bij je doel bent.",
+              "De LED-lampjes aan de binnenkant geven ook aan hoeveel procent van je doel je hebt bereikt. Open de bovenkant om deze te bekijken. Dit is vooral handig om precies te zien hoeveel je nog moet om je doel te bereiken."
             ]
           }
         ]
       },
       {
         "id": "step-3",
-        "title": "Stap 3: Batterij & Voeding",
-        "label": "Stap 3: Batterij & Voeding",
-        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+        "title": "Stap 3: Batterij & Onderhoud",
+        "label": "Stap 3: Batterij & Onderhoud",
+        "description": "Leer hoe je de batterij van je MoneyTree onderhoudt en vervangt, plus algemene onderhoudstips.",
         "component": "Step3",
         "subSections": [
           {
             "id": "step-3-1",
             "step": "3.1",
-            "title": "Subitem",
-            "label": "Subitem 3.1",
+            "title": "Standaard batterijen",
+            "label": "Standaard batterijen",
             "content": [
-              "Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi."
+              "MoneyTree maakt gebruik van een externe powersupply voor de CPX. Dit is een simpele batterijhouder waarin 3 AA-batterijen moeten. Deze zijn makkelijk te vervangen door de bovenkant van de deksel op te tillen en de batterijhouder eruit te halen.",
+              "Vervang de batterijen tijdig om ervoor te zorgen dat je MoneyTree altijd blijft werken. Lege batterijen kunnen ervoor zorgen dat de sensor niet goed werkt. Een gemiddelde set AA-batterijen gaat ongeveer 3-6 maanden mee bij normaal gebruik."
             ]
           },
           {
             "id": "step-3-2",
             "step": "3.2",
-            "title": "Subitem",
-            "label": "Subitem 3.2",
+            "title": "Oplaadbare batterij optie",
+            "label": "Oplaadbare batterij optie",
             "content": [
-              "Id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
-              "Nam libero tempore, cum soluta nobis est eligendi."
+              "De batterijhouder kan eventueel worden vervangen door een 3.7 volt externe batterij. Check altijd dat het de goede is voordat je de batterij vervangt.",
+              "De externe 3.7 volt batterij is oplaadbaar via de computer wanneer je deze verbindt met de CPX. Wees echter altijd voorzichtig wanneer je de batterij vervangt en zorg ervoor dat de polariteit correct is. Een volledige oplaadbeurt duurt ongeveer 2-3 uur."
+            ]
+          },
+          {
+            "id": "step-3-3",
+            "step": "3.3",
+            "title": "Veiligheidstips",
+            "label": "Veiligheidstips",
+            "content": [
+              "Gebruik alleen batterijen die geschikt zijn voor de MoneyTree (3 AA-batterijen of een 3.7V oplaadbare batterij).",
+              "Meng nooit oude en nieuwe batterijen, en gebruik geen verschillende merken of types tegelijk. Dit kan leiden tot lekkage of verminderde prestaties.",
+              "Bij het gebruik van een oplaadbare batterij, zorg ervoor dat deze volledig is opgeladen voordat je hem installeert voor optimale prestaties. Verwijder lege batterijen altijd direct om lekkage te voorkomen."
+            ]
+          },
+          {
+            "id": "step-3-4",
+            "step": "3.4",
+            "title": "Algemeen onderhoud",
+            "label": "Algemeen onderhoud",
+            "content": [
+              "Reinig je MoneyTree regelmatig met een droge, zachte doek. Gebruik geen water of schoonmaakmiddelen direct op de elektronica.",
+              "Controleer periodiek of de aluminiumfolie nog goed vastzit en niet beschadigd is. Vervang het folie indien nodig voor optimale sensor werking.",
+              "Bewaar je MoneyTree op een droge plek bij kamertemperatuur. Vermijd extreme temperaturen en directe blootstelling aan zonlicht."
             ]
           }
+
         ]
       },
       {
         "id": "step-4",
-        "title": "Stap 4: Probleemoplossing",
-        "label": "Stap 4: Probleemoplossing",
-        "description": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.",
+        "title": "Stap 4: Probleemoplossing & Support",
+        "label": "Stap 4: Probleemoplossing & Support",
+        "description": "Hulp bij veelvoorkomende problemen, veelgestelde vragen en contactinformatie.",
         "component": "Step4",
         "subSections": [
           {
             "id": "step-4-1",
             "step": "4.1",
-            "title": "Subitem",
-            "label": "Subitem 4.1",
+            "title": "Knoppen werken niet goed",
+            "label": "Knoppen werken niet goed",
             "content": [
-              "Sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur."
+              "Het kan voorkomen dat de externe knoppen die zijn verbonden met de CPX niet goed reageren. Dit is helaas een probleem dat wel vaker voorkomt.",
+              "Wanneer de knop bijvoorbeeld meerdere ledjes laat branden met een enkele klik, moet de pauze worden aangepast. Dit is te doen door de code van MakeCode te pakken en alle pauzes (500ms standaard) bijvoorbeeld te verdubbelen.",
+              "Een ander voorkomend probleem is dat de knoppen soms niet meer werken. Dit kan komen door de Cricket (het groene bordje dat aan de CPX zit). Verwijder dan simpelweg de Cricket van de CPX. Let op: je kunt dan geen gebruik meer maken van de batterijhouder en heb je een 3.7 volt oplaadbare batterij nodig."
             ]
           },
           {
             "id": "step-4-2",
             "step": "4.2",
-            "title": "Subitem",
-            "label": "Subitem 4.2",
+            "title": "MoneyTree groeit niet meer",
+            "label": "MoneyTree groeit niet meer",
             "content": [
-              "Aut perferendis doloribus asperiores repellat."
+              "Wanneer de MoneyTree niet meer groeit bij het invoeren van geld of druppeltjes, kan dit aan een aantal dingen liggen:",
+              "1. Het doel is al bereikt - Check of de ledjes rood zijn. Indien dit zo is, reset dan de MoneyTree en stel een nieuw doel in.",
+              "2. De touch sensor is niet goed verbonden - Haal de deksel eraf en controleer of de verbinding goed is. Het kan ook zijn dat het folie moet worden vervangen. Pak wat nieuw aluminiumfolie en wikkel dit om het gleufje. Laat aan één kant (het makkelijkst is de richting het dichtst bij de CPX) een beetje meer over en zorg ervoor dat het krokodillenklemmetje er goed omheen zit.",
+              "3. De knoppen werken niet meer goed - Er kan geen spaardoel worden neergezet. Volg de stappen uit sectie 4.1 om dit probleem op te lossen."
+            ]
+          },
+          {
+            "id": "step-4-3",
+            "step": "4.3",
+            "title": "Sensor reageert niet",
+            "label": "Sensor reageert niet",
+            "content": [
+              "Als de touch sensor helemaal niet reageert, controleer dan eerst of de batterijen nog voldoende spanning leveren. Vervang deze indien nodig.",
+              "Controleer of het aluminiumfolie nog goed contact maakt met de CPX. Het folie kan na verloop van tijd beschadigd raken of loskomen.",
+              "Zorg ervoor dat de munten of druppeltjes daadwerkelijk contact maken met het folie. Bij te dun karton voor druppeltjes kan de sensor soms niet worden geraakt."
+            ]
+          },
+          {
+            "id": "step-4-4",
+            "step": "4.4",
+            "title": "LED-lampjes werken niet",
+            "label": "LED-lampjes werken niet",
+            "content": [
+              "Als de LED-lampjes niet (meer) werken, controleer dan eerst de batterijen. Zwakke batterijen kunnen ervoor zorgen dat de LEDs niet voldoende spanning krijgen.",
+              "Check of alle verbindingen tussen de CPX en de LED-strip goed zitten. Een losse verbinding kan ervoor zorgen dat de LEDs niet functioneren.",
+              "Als het probleem aanhoudt, kan er een defect zijn aan de LED-strip zelf. Neem in dat geval contact met ons op via onze contactpagina voor verdere ondersteuning."
+            ]
+          },
+          {
+            "id": "step-4-5",
+            "step": "4.5",
+            "title": "Veelgestelde vragen (FAQ)",
+            "label": "Veelgestelde vragen (FAQ)",
+            "content": [
+              "Q: Hoe vaak moet ik de batterijen vervangen?\nA: Bij normaal gebruik gaan AA-batterijen 3-6 maanden mee. Dit hangt af van hoe vaak je de MoneyTree gebruikt.",
+              "Q: Kan ik ook andere munten dan euro's gebruiken?\nA: Ja, je kunt elke munt gebruiken die contact maakt met de sensor. Het systeem telt punten, geen geldbedragen.",
+              "Q: Wat gebeurt er als ik mijn doel heb bereikt?\nA: De bloem is dan volledig volgroeid en alle LED-lampjes branden rood. Je kunt dan de MoneyTree resetten en een nieuw doel instellen.",
+              "Q: Kan ik meerdere doelen tegelijk bijhouden?\nA: Nee, MoneyTree houdt één doel tegelijk bij. Je kunt wel na het bereiken van een doel direct een nieuw doel instellen.",
+              "Q: Zijn de druppeltjes herbruikbaar?\nA: Ja, de druppeltjes kun je oneindig vaak hergebruiken zolang ze niet beschadigd zijn.",
+              "Q: Wat als mijn MoneyTree nat wordt?\nA: Schakel hem direct uit, verwijder de batterijen en laat alles grondig drogen voordat je hem weer gebruikt. Water kan de elektronica beschadigen."
+            ]
+          },
+          {
+            "id": "step-4-6",
+            "step": "4.6",
+            "title": "Contact & Support",
+            "label": "Contact & Support",
+            "content": [
+              "Heb je een vraag die niet in deze handleiding staat, of lukt het niet om een probleem op te lossen? Ons support team helpt je graag verder!",
+              "Je kunt contact met ons opnemen via onze contactpagina. Daar kun je een bericht sturen met je vraag of probleem. We streven ernaar om binnen 24-48 uur te reageren.",
+              "Voor technische vragen, vermeld dan altijd het versienummer van je MoneyTree en een duidelijke beschrijving van het probleem. Dit helpt ons om je sneller te kunnen helpen.",
+              "Email: MoneyTreeTeamHR@gmail.com",
+              "Website: www.moneytree.nl/contact"
+            ]
+          },
+          {
+            "id": "step-4-7",
+            "step": "4.7",
+            "title": "Deel je ervaring",
+            "label": "Deel je ervaring",
+            "content": [
+              "Ben je tevreden met je MoneyTree? We horen graag van je! Deel je ervaring door een review achter te laten op onze website.",
+              "Je feedback helpt ons om MoneyTree te verbeteren en andere gebruikers te inspireren. Via de contactpagina kun je kiezen voor 'Review' en je ervaringen met ons delen.",
+              "Vertel ons wat je het leukst vindt aan MoneyTree, welke doelen je hebt bereikt, en of je suggesties hebt voor verbeteringen. Elke review wordt door ons team gelezen en gewaardeerd!",
+              "Ga naar: www.moneytree.nl/contact en selecteer 'Review' om je ervaring te delen."
             ]
           }
         ]

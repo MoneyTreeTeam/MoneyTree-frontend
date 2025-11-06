@@ -39,10 +39,16 @@ import { Icon } from '@iconify/vue';
 import BaseContainer from './BaseContainer.vue';
 
 // --- INTERFACES ---
+interface TocSubItem {
+  id: string;
+  step: string;
+  title: string;
+}
+
 interface TocItem {
   id: string;
   label: string;
-  subsections?: TocItem[];
+  subsections?: TocSubItem[];
 }
 
 interface Props {
@@ -148,12 +154,13 @@ const isExpanded = (id: string) => expandedItems.value.has(id);
               >
                 <a 
                   :href="`#${subitem.id}`" 
-                  :aria-label="`Ga naar subsectie ${subitem.label}`"
+                  :aria-label="`Ga naar subsectie ${subitem.step} ${subitem.title}`"
                   :aria-current="activeId === subitem.id ? 'location' : undefined"
                   class="toc__subsection-link"
                   @click.prevent.stop="requestNavigation(index, subitem.id)"
                 >
-                  {{ subitem.label }}
+                  <span class="toc__subsection-step">{{ subitem.step }}</span>
+                  <span class="toc__subsection-title">{{ subitem.title }}</span>
                 </a>
               </li>
             </ul>

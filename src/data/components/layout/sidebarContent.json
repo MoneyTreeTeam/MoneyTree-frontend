@@ -23,28 +23,6 @@
 				"label": "Contact",
 				"path": "/contact",
 				"icon": "mdi:email"
-			},
-			{
-				"id": "policies",
-				"label": "Juridisch",
-				"icon": "mdi:shield-check",
-				"children": [
-					{
-						"id": "terms",
-						"label": "Algemene voorwaarden",
-						"path": "/algemene-voorwaarden"
-					},
-					{
-						"id": "privacy",
-						"label": "Privacyverklaring",
-						"path": "/privacyverklaring"
-					},
-					{
-						"id": "cookies",
-						"label": "Cookies",
-						"path": "/cookies"
-					}
-				]
 			}
 		]
 	}

@@ -102,7 +102,8 @@
 			label: section.title,
 			subsections: section.subSections.map((sub) => ({
 				id: sub.id,
-				label: sub.label,
+				step: sub.step,
+				title: sub.title,
 			})),
 		})),
 	);
@@ -194,7 +195,7 @@
 <template>
 	<GuestLayout>
 		<BreadCrumbs :items="breadcrumbItems" @navigate="handleBreadcrumbNavigation" />
-		<div class="user-guide container">
+		<div class="user-guide container fade-in-initial">
 			<header class="user-guide__header">
 				<h1 class="user-guide__title">{{ userGuide.title }}</h1>
 				<p class="user-guide__description">{{ userGuide.description }}</p>

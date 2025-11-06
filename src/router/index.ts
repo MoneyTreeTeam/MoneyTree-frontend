@@ -1,19 +1,12 @@
+import type { RouteRecordRaw } from "vue-router";
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/views/app/Home.vue";
-import UserGuide from "@/views/app/UserGuide.vue";
-import Contact from "@/views/help/Contact.vue";
-import AlgemeneVoorwaarden from "@/views/policies/AlgemeneVoorwaarden.vue";
-import Cookies from "@/views/policies/Cookies.vue";
-import Privacyverklaring from "@/views/policies/Privacyverklaring.vue";
-import NotFound404 from "@/views/errors/NotFound404.vue";
-import ServerError500 from "@/views/errors/ServerError500.vue";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
 	// Main Application Routes
 	{
 		path: "/",
 		name: "Home",
-		component: Home,
+		component: () => import("@/views/app/Home.vue"),
 		meta: {
 			title: "Home",
 		},
@@ -23,7 +16,7 @@ const routes = [
 	{
 		path: "/handleiding",
 		name: "UserGuide",
-		component: UserGuide,
+		component: () => import("@/views/app/UserGuide.vue"),
 		meta: {
 			title: "Handleiding",
 		},
@@ -33,7 +26,7 @@ const routes = [
 	{
 		path: "/contact",
 		name: "Contact",
-		component: Contact,
+		component: () => import("@/views/help/Contact.vue"),
 		meta: {
 			title: "Contact",
 		},
@@ -43,7 +36,7 @@ const routes = [
 	{
 		path: "/algemene-voorwaarden",
 		name: "AlgemeneVoorwaarden",
-		component: AlgemeneVoorwaarden,
+		component: () => import("@/views/policies/AlgemeneVoorwaarden.vue"),
 		meta: {
 			title: "Algemene Voorwaarden",
 		},
@@ -51,7 +44,7 @@ const routes = [
 	{
 		path: "/cookies",
 		name: "Cookies",
-		component: Cookies,
+		component: () => import("@/views/policies/Cookies.vue"),
 		meta: {
 			title: "Cookiebeleid",
 		},
@@ -59,7 +52,7 @@ const routes = [
 	{
 		path: "/privacyverklaring",
 		name: "Privacyverklaring",
-		component: Privacyverklaring,
+		component: () => import("@/views/policies/Privacyverklaring.vue"),
 		meta: {
 			title: "Privacyverklaring",
 		},
@@ -69,7 +62,7 @@ const routes = [
 	{
 		path: "/500",
 		name: "ServerError",
-		component: ServerError500,
+		component: () => import("@/views/errors/ServerError500.vue"),
 		meta: {
 			title: "Serverfout",
 		},
@@ -77,7 +70,7 @@ const routes = [
 	{
 		path: "/404",
 		name: "NotFound",
-		component: NotFound404,
+		component: () => import("@/views/errors/NotFound404.vue"),
 		meta: {
 			title: "Pagina niet gevonden",
 		},

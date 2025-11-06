@@ -16,13 +16,13 @@ $grey: grey;
 // // - ALL INPUTS (Input.vue, Checkbox.vue, RadioButton.vue, etc..) - \\ --------------------------------------------------------------------------
 
 // Input border colors (based on primary green)
-$color-input-border: #072d1340; // Input border color (25% opacity of primary)
-$color-input-border-hover: #072d1366; // Input border hover color (40% opacity of primary)
+$color-input-border: #072d1366; // Input border color (40% opacity of primary)
+$color-input-border-hover: #072d138c; // Input border hover color (55% opacity of primary)
 $color-input-border-focus: $color-primary; // Input border focus color (primary green)
 
 // Input placeholder colors (based on primary green)
-$color-input-placeholder: #072d1340; // Input placeholder text color (25% opacity of primary)
-$color-input-placeholder-hover: #072d1366; // Input placeholder hover color (40% opacity of primary)
+$color-input-placeholder: #072d1366; // Input placeholder text color (40% opacity of primary)
+$color-input-placeholder-hover: #072d138c; // Input placeholder hover color (55% opacity of primary)
 
 // Input background colors
 $color-input-bg: #ffffff; // Input background color
@@ -55,11 +55,11 @@ $color-status-text-fatal: #991b1b; // Fatal text
 $color-status-text-success: #16a34a; // Success text
 
 // Status Border colors
-$color-status-border-error: #fecaca; // Error border
-$color-status-border-warn: #fed7aa; // Warning border
-$color-status-border-info: #bfdbfe; // Info border
-$color-status-border-fatal: #fca5a5; // Fatal border (consistent with error family)
-$color-status-border-success: #bbf7d0; // Success border
+$color-status-border-error: #dc2626; // Error border
+$color-status-border-warn: #d97706; // Warning border
+$color-status-border-info: #2563eb; // Info border
+$color-status-border-fatal: #991b1b; // Fatal border (consistent with error family)
+$color-status-border-success: #16a34a; // Success border
 
 // Status Background colors
 $color-status-bg-error: #fef2f2; // Error background

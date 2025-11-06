@@ -33,29 +33,6 @@ body {
 	position: relative; // Positioning context
 }
 
-// Mobile-only constraint (≤767px)
-@media (max-width: 767px) {
-	html,
-	body {
-		max-width: 767px; // Mobile-only max viewport
-	}
-}
-
-// Input autofill styling
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-	-webkit-box-shadow: 0 0 0 30px white inset !important; // Override autofill background
-	-webkit-text-fill-color: $color-primary2 !important; // Maintain text color
-	transition: background-color 5000s ease-in-out 0s; // Prevent color flash
-}
-
-input:autofill {
-	background-color: white !important; // Standard autofill background
-	color: $color-primary2 !important; // Standard autofill text color
-}
-
 // Remove default focus outline for inputs (custom styling should be in forms)
 input:focus {
 	outline: none; // Remove default browser outline
@@ -68,12 +45,6 @@ input:focus {
 	position: relative; // Positioning context
 }
 
-// Mobile-only constraint (≤767px)
-@media (max-width: 767px) {
-	#app {
-		max-width: 767px; // Mobile-only width
-	}
-}
 
 /* =======================================
    iOS / Safari Click & Hover Fix

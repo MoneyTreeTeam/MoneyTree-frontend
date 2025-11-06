@@ -1,4 +1,34 @@
 @use "./colors" as *;
+@use "./variables" as *;
+
+/* =======================================
+   Responsive Breakpoint Mixins
+   ======================================= */
+
+// Small mobile devices (max-width: 480px)
+@mixin mobile-small {
+	@media (max-width: $breakpoint-mobile-small) {
+		@content;
+	}
+}
+
+// Mobile devices (max-width: 767px)
+@mixin mobile {
+	@media (max-width: $breakpoint-mobile) {
+		@content;
+	}
+}
+
+// Tablet and desktop devices (min-width: 768px)
+@mixin tablet {
+	@media (min-width: $breakpoint-tablet) {
+		@content;
+	}
+}
+
+/* =======================================
+   Gradient Background Mixins
+   ======================================= */
 
 // Hero gradient background - subtle primary color fade
 @mixin gradient-bg-hero {
@@ -75,26 +105,26 @@
 // Apply responsive max-width (1140px desktop / 767px mobile)
 @mixin responsive-container {
 	// Desktop: max-width 1140px
-	@media (min-width: 768px) {
+	@include tablet {
 		max-width: 1140px;
 	}
 	
 	// Mobile: max-width 767px
-	@media (max-width: 767px) {
+	@include mobile {
 		max-width: 767px;
 	}
 }
 
 // Apply only desktop max-width (1140px)
 @mixin container-desktop {
-	@media (min-width: 768px) {
+	@include tablet {
 		max-width: 1140px;
 	}
 }
 
 // Apply only mobile max-width (767px)
 @mixin container-mobile {
-	@media (max-width: 767px) {
+	@include mobile {
 		max-width: 767px;
 	}
 }

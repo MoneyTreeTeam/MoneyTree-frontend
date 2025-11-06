@@ -127,18 +127,20 @@ const handleClick = () => {
         :form="form || undefined"
         @click="handleClick"
     >
-    <template v-if="processing">
-        <span class="base-button__loader"></span>
-    </template>
-    
-    <template v-else>
-        <Icon
-            v-if="icon"
-            :icon="icon"
-            class="base-button__icon"
-        />
-        <span v-if="label">{{ label }}</span>
-    </template>
+    <span class="base-button__content">
+        <template v-if="processing">
+            <span class="base-button__loader"></span>
+        </template>
+        
+        <template v-else>
+            <Icon
+                v-if="icon"
+                :icon="icon"
+                class="base-button__icon"
+            />
+            <span v-if="label">{{ label }}</span>
+        </template>
+    </span>
     </button>
 </template>
 
